@@ -1,0 +1,13 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(224, 202, 202);
+}
+.header_img {
+    height: 300px;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+.telegram {
+    text-decoration: none;
+}
