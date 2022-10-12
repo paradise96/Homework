@@ -1,0 +1,43 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    background-color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    color: #070707;
+    font-size: 18px;
+    line-height: 25px;
+}
+.container {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 970px;
+}
+#header {
+    height: 80px;
+    line-height: 80px;
+}
+#header .container {
+    border-bottom: 1px solid black;
+}
+.main_menu ul {
+    list-style: none;
+    text-align: center;
+}
+.main_menu ul li{
+    display: inline-block;
+    margin: 0 19px;
+}
+.main_menu ul li a{
+    text-decoration: none;
+    color: #828282;
+}
+.main_menu ul li a:hover{
+    color: #070707;
+}

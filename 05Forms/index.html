@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="../05Forms/style.css">
+</head>
+<body>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Дані користувача і курс</legend>
+            <label for="name">Повне ім'я
+                <input type="text" id="name" name="name" class="name" required>
+            </label>
+            <br>
+            <label for="email">Email
+                <input type="email" id="email" name="email" class="email" required>
+            </label>
+            <br>
+            <label for="password">Пароль
+                <input type="password" id="password" name="password" class="password" required>
+            </label>
+            <br>
+            <label for="password_repeat">Пароль ще раз
+                <input type="password" id="password_repeat" name="password" class="password" required>
+            </label>
+            <br>
+            <label for="gender">Стать
+                <input type="radio" name="gender" id="gender" checked required>чоловіча
+                <input type="radio" name="gender">жіноча
+            </label>
+            <br>
+            <label for="age">Вік
+                <input type="number" id="age" name="age" class="age" required>
+            </label>
+            <br>
+            <label for="course">Курс
+                <select name="course" id="course" required>
+                    <option value="-=Виберіть курс=-">-=Виберіть курс=-</option>
+                    <option value="front-end">Front-End</option>
+                    <option value="back-end">Back-End</option>
+                    <option value="project management">Project Management</option>
+                    <option value="qa manual">QA Manual</option>
+                </select>
+            </label>
+            <br>
+            <label for="address">Повна адреса
+                <textarea name="address" id="address" cols="20" rows="5" required placeholder="Країна, регіон, місто/селище, вулиця"></textarea>
+            </label>
+            <br>
+            <label for="agreement">
+                <input type="checkbox" id="agreement" name="agreement" required>Я погоджуюсь з обробкою персональних даних
+            </label>
+            <br>
+            <button type="reset">Очистити форму</button>
+            <button type="submit">Зареєструватися</button>
+        </fieldset>
+    </form>
+</body>
+</html>
