@@ -8,54 +8,47 @@
     <link rel="stylesheet" href="../05Forms/style.css">
 </head>
 <body>
-    <form action="#" method="post">
+    <form action="#" method="post" id="my_form" onsubmit="alert(decodeURI(new URLSearchParams(Array.from(new FormData(document.getElementById('my_form')))).toString()));return false;">
         <fieldset>
             <legend>Дані користувача і курс</legend>
-            <label for="name">Повне ім'я
-                <input type="text" id="name" name="name" class="name" required>
-            </label>
+            <label for="name">Повне ім'я</label>
+                <input type="text" id="name" name="name" class="name" required>          
             <br>
-            <label for="email">Email
+            <label for="email">Email</label>
                 <input type="email" id="email" name="email" class="email" required>
-            </label>
             <br>
-            <label for="password">Пароль
+            <label for="password">Пароль </label>
                 <input type="password" id="password" name="password" class="password" required>
-            </label>
+
             <br>
-            <label for="password_repeat">Пароль ще раз
+            <label for="password_repeat">Пароль ще раз</label>
                 <input type="password" id="password_repeat" name="password" class="password" required>
-            </label>
             <br>
-            <label for="gender">Стать
-                <input type="radio" name="gender" id="gender" checked required>чоловіча
-                <input type="radio" name="gender">жіноча
-            </label>
+            <label for="gender">Стать</label>
+            <label><input type="radio" name="gender" id="gender" checked required>чоловіча</label>               
+            <label><input type="radio" name="gender">жіноча</label>
             <br>
-            <label for="age">Вік
-                <input type="number" id="age" name="age" class="age" required>
-            </label>
+            <label for="age">Вік</label>
+                <input type="number" id="age" name="age" class="age" required>           
             <br>
-            <label for="course">Курс
+            <label for="course">Курс</label>
                 <select name="course" id="course" required>
                     <option value="-=Виберіть курс=-">-=Виберіть курс=-</option>
                     <option value="front-end">Front-End</option>
                     <option value="back-end">Back-End</option>
                     <option value="project management">Project Management</option>
                     <option value="qa manual">QA Manual</option>
-                </select>
-            </label>
+                </select>          
             <br>
-            <label for="address">Повна адреса
-                <textarea name="address" id="address" cols="20" rows="5" required placeholder="Країна, регіон, місто/селище, вулиця"></textarea>
-            </label>
+            <label for="address">Повна адреса</label>
+                <textarea name="address" id="address"  required placeholder="Країна, регіон, місто/селище, вулиця"></textarea>           
             <br>
-            <label for="agreement">
-                <input type="checkbox" id="agreement" name="agreement" required>Я погоджуюсь з обробкою персональних даних
-            </label>
-            <br>
-            <button type="reset">Очистити форму</button>
-            <button type="submit">Зареєструватися</button>
+            <label for="agreement" class="agreement"></label>
+                <input type="checkbox" id="agreement" name="agreement" required class="agreement">Я погоджуюсь з обробкою персональних даних          
+                <br>
+                <!-- я не знаю як притиснути цей елемент до лівого краю-->
+            <button type="reset" class="reset">Очистити форму</button>
+            <button type="submit" class="submit">Зареєструватися</button>
         </fieldset>
     </form>
 </body>
