@@ -2,7 +2,7 @@ input, select, textarea {
     margin-top: 15px;
 }
 label {
-    width: 150px;
+    width: 200px;
     display: inline-block;
 }
 button {
@@ -11,4 +11,8 @@ button {
 .reset {
     margin-left: 40px;
     margin-right: 20px;
+}
+.agreement {
+    width: auto;
+    display: inline;
 }
