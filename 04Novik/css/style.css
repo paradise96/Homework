@@ -14,6 +14,13 @@ body {
     font-size: 18px;
     line-height: 25px;
 }
+ul, ol {
+    list-style: none;
+}
+/* посмотреть чи працює */
+img {
+    vertical-align: top;
+}
 .container {
     margin: 0 auto;
     width: 90%;
@@ -40,4 +47,167 @@ body {
 }
 .main_menu ul li a:hover{
     color: #070707;
+}
+.title_1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 65px;
+    color: #070707;
+    margin-top: 12px;
+    margin-bottom: 45px;
+}
+.gray_bg {
+    background-color: #F6F6F6;
+}
+.about_me {
+    padding: 99px 0;
+}
+.title, .title_skills {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 46px;
+    text-align: center;
+    color: #070707;
+}
+.about_me_text {
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+}
+.about_me_designer {
+    margin-top: 44px;
+}
+.about_me_courses {
+    margin-top: 30px;
+}
+.skills {
+    padding: 100px 0;
+}
+.title_skills {
+    margin-bottom: 20px;
+}
+.subtitle {
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.program_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.programs {
+    height: 170px;
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 25px;
+}
+.faded_star {
+    opacity: 0.2;
+}
+.program_title {
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    color: #828282;
+}
+.program_width {
+    width: 80px;
+}
+.program_title {
+    margin-top: 25px;
+    margin-bottom: 60px;
+}
+.program_figma {
+    margin-top: 0;
+    margin-bottom: 80px;
+}
+/* .stars {
+    width: 170px;
+} */
+.portfolio {
+    padding: 155px 0;
+}
+.portfolio_title {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 46px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.fashion_link {
+    width: 200px;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    text-decoration: none;
+    margin-top: 40px;
+    margin-bottom: 70px;
+    color: #070707;
+    transition: 0.3s all ease;
+}
+.fashion_link:hover {
+    text-decoration: underline;
+}
+.braun_link {
+    color: #070707;
+    width: 260px;
+    margin-bottom: 0;
+}
+.contact_title {
+    width: 280px;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #070707;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+.button_message {
+    background: #070707;
+    border-radius: 22px;
+    color: #fff;
+    width: 180px;
+    height: 44px;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    display: block;
+    font-weight: 700;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    transition: 0.5s all ease;
+}
+#footer {
+    padding: 36px 0;
+}
+.button_message:hover {
+    background-color: #fff;
+    color: #070707;
+}
+.logos {
+    display: flex;
+    width: 310px;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 0 auto;
+    gap: 50px;
+}
+.like_me {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    color: #828282;
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 60px;
 }

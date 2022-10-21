@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Не знаю як зробити зірочки -->
     <header id="header">
         <div class="container">
             <nav class="main_menu">  
@@ -27,32 +28,34 @@
     <main>
         <section class="first_screen">
             <div class="container">
-                <h1>Denis Novik</h1>
+                <h1 class="title_1">Denis Novik</h1>
                 <img src="img/photox940.jpg" alt="photo of Denis Novik">
             </div>
         </section>
-        <section class="about_me">
+        <section class="about_me gray_bg">
             <div class="container">
-                <h2 class="title">Denis Novik</h2>
+                <h2 class="title">About me</h2>
                 <div class="about_me_text">
-                <div>Hi, I'm Denis – UX/UI designer from Minsk. 
+                <div class="about_me_designer">Hi, I'm Denis – UX/UI designer from Minsk.<br>
                     I'm interested in design and everything connected with it.</div>
-                <div>I'm studying at courses "Web and mobile design 
+                <div class="about_me_courses">I'm studying at courses "Web and mobile design<br>
                     interfaces" in IT-Academy.</div>
-                <div>Ready to implement excellent projects
+                <div class="about_me_courses">Ready to implement excellent projects<br>
                     with wonderful people.</div>
                 </div>
             </div>
         </section>
         <section class="skills">
             <div class="container">
-                <h2 class="title">Skills</h2>
+                <h2 class="title_skills">Skills</h2>
                 <div class="subtitle">I work in such programs as</div>
+                <div class="program_wrapper">
                 <div class="programs">
-                    
-                    <img src="img/Ps.png" alt="Photoshop logo">
+                    <div class="program_width">
+                    <img src="img/Ps.png" alt="Photoshop logo" class="program_img">
                     <div class="program_title">Adobe
                         Photoshop</div>
+                    </div>
                     <div class="stars">
                         <img src="img/Vector.svg" alt="star">
                         <img src="img/Vector.svg" alt="star">
@@ -62,9 +65,11 @@
                     </div>
                 </div>
                 <div class="programs">
-                    <img src="img/Ai.png" alt="Adobe Illustrator">
+                    <div class="program_width">
+                    <img src="img/Ai.png" alt="Adobe Illustrator" class="program_img">              
                     <div class="program_title">Adobe
                         Illustrator</div>
+                    </div>
                     <div class="stars">
                         <img src="img/Vector.svg" alt="star">
                         <img src="img/Vector.svg" alt="star">
@@ -74,8 +79,11 @@
                     </div>
                 </div>
                 <div class="programs">
-                    <img src="img/Ae.png" alt="Adobe After Effects">
-                    <div class="program_title">Adobe After Effects</div>
+                    <div class="program_width">
+                    <img src="img/Ae.png" alt="Adobe After Effects" class="program_img">
+                    <div class="program_title">Adobe
+                        After Effects</div>
+                    </div>
                     <div class="stars">
                         <img src="img/Vector.svg" alt="star">
                         <img src="img/Vector.svg" alt="star">
@@ -85,8 +93,9 @@
                     </div>
                 </div>
                 <div class="programs">
-                    <img src="img/Figma.png" alt="Figma logo">
-                    <div class="program_title">Figma</div>
+
+                    <img src="img/Figma.png" alt="Figma logo" class="program_img">
+                    <div class="program_title program_figma">Figma</div>
                     <div class="stars">
                         <img src="img/Vector.svg" alt="star">
                         <img src="img/Vector.svg" alt="star">
@@ -94,23 +103,24 @@
                         <img src="img/Vector.svg" alt="star">
                         <img src="img/Vector.svg" alt="star">
                     </div>
+                </div>
                 </div>
             </div>
         </section>
-        <section class="portfolio">
+        <section class="portfolio gray_bg">
             <div class="container">
-                <div class="portfolio">
-                    <h2 class="title">Portfolio</h2>
+                <div class="portfolio_wrapper">
+                    <h2 class="portfolio_title">Portfolio</h2>
                     <img src="img/Fashion-Store.jpg" alt="New collection">
-                    <a href="#">Online fashion store - Homepage</a>
+                    <a href="#" class="fashion_link">Online fashion store - Homepage</a>
                 </div>
                 <div class="reebok">
                     <img src="img/reebok_web.jpg" alt="Reebok store">
-                    <a href="#">Reebok Store - Concept</a>
+                    <a href="#" class="fashion_link">Reebok Store - Concept</a>
                 </div>
                 <div class="braun">
                     <img src="img/braun-landing.jpg" alt="Braun store">
-                    <a href="#">Braun Landing Page - Concept</a>
+                    <a href="#" class="fashion_link braun_link">Braun Landing Page - Concept</a>
                 </div>
             </div>
         </section>
@@ -122,14 +132,33 @@
             You are welcome!</div>
             <button type="submit" class="button_message">Send message</button>
             <div class="icons">
-                <img src="img/linkedin.png" alt="Linkedin logo">
-                <img src="img/instagram.png" alt="Instagram logo">
-                <img src="img/behance.png" alt="Behance logo">
-                <img src="img/dribbble.png" alt="Dribble logo">
+                <ul class="logos">
+                    <li>
+                        <a href="#">
+                            <img src="img/linkedin.png" alt="Linkedin logo">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/instagram.png" alt="Instagram logo">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/behance.png" alt="Behance logo">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/dribbble.png" alt="Dribble logo">
+                        </a>
+                    </li>
+                </ul>              
             </div>
             <div class="like_me">
-                Like me on
-                LinkedIn, Instagram, Behance, Dribble
+                Like me on<br>
+                LinkedIn, Instagram, Behance,
+                Dribble<br>
             </div>
        </div>
     </footer>
