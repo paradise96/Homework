@@ -129,7 +129,7 @@ h1 {
 }
 .tools {
     padding: 100px 0;
-    background: url(image/);
+    background: url(image/bgbg.png) center bottom/cover no-repeat;
 }
 .tools__header{
     margin: 0 auto;
@@ -144,9 +144,9 @@ h1 {
     text-align: center;
     color: #2F281E;
 }
-.tools__background {
+/* .tools__background {
      background: url(image/bgbg.png) center center/cover no-repeat;
-}
+} */
 .tools__flex {
     display: flex;
     justify-content: space-between;
@@ -205,7 +205,7 @@ h1 {
 .footer_flex {
     display: flex;
     justify-content: space-between;
-    gap: 130px;
+    gap: 100px;
 }
 .header, .header_input {
     font-weight: 700;

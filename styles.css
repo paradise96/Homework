@@ -45,3 +45,13 @@ a:hover {
     background-color: #fff;
     color: #070707;
 }
+/* Урок про то як притиснуть футер до кінця */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+}
+main {
+    flex-grow: 1;
+}

@@ -18,30 +18,38 @@
     </header>
     <section class="shopping_list">
         <div class="container">
-            <div class="pickles">
-                <label for="lot_pickles">A lot of pickles<small> (for the next lessons about CSS)</small></label>
-                <input type="checkbox" name="pickles" id="lot_pickles">
-            </div>
-            <div class="apples">
-                <label for="10apples">10 apples<small> (for more CSS manipulations)</small></label>
-                <input type="checkbox" name="apples" id="10apples">
-            </div>
-            <div class="oranges">
-                <label for="20oranges">20 oranges<small> (because they are awesome)</small></label>
-                <input type="checkbox" name="oranges" id="20oranges">
-            </div>
-            <div class="plates">
-                <label for="13plates">13 plates<small>  (hm... they always dissapear)</small></label>
+            <ul class="menu_list">
+                <li>
+                    <input type="checkbox" name="pickles" id="lot_pickles">
+                    <label class="strikethrough" for="lot_pickles">A lot of pickles<small class="strikethrough"> (for the next lessons about CSS)</small></label>
+                </li>
+
+                <li>
+                    <input type="checkbox" name="apples" id="10apples">
+                    <label class="strikethrough" for="10apples">10 apples<small> (for more CSS manipulations)</small></label>     
+                </li>
+
+                <li>
+                    <input type="checkbox" name="oranges" id="20oranges">
+                    <label class="strikethrough" for="20oranges">20 oranges<small> (because they are awesome)</small></label>
+
+                </li>
+                <li>                    
                 <input type="checkbox" name="plates" id="13plates">
-            </div>
-            <div class="bentos">
-                <label for="15bentos">15 bentos</label>
-                <input type="checkbox" name="bentos" id="15bentos">
-            </div>
-            <div class="sake">
-                <label for="1sake">1 bottle of Sake <small>(for my friends)</small></label>
-                <input type="checkbox" name="sake" id="1sake">
-            </div>
+                <label class="strikethrough" for="13plates">13 plates<small>  (hm... they always dissapear)</small></label>   
+                </li>
+
+                <li>
+                    <input type="checkbox" name="bentos" id="15bentos">
+                    <label class="strikethrough" for="15bentos">15 bentos</label>  
+                </li>
+
+                <li>
+                    <input type="checkbox" name="sake" id="1sake">
+                    <label class="strikethrough" for="1sake">1 bottle of Sake <small>(for my friends)</small></label>   
+                </li>
+            </ul>
+                         
         </div>
     </section>
     <footer id="footer">

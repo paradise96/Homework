@@ -40,11 +40,87 @@ h2 {
     margin: 0 auto;
     width: 90%;
     max-width: 793px;
-}
-input {
-    display: none;
+    height: 100%;
 }
 .shopping_list {
     padding: 20px 0 45px 0;
     background: #3B3F45;
+    color: #fff;
+    /* height: 100%; */
 }
+
+#footer {
+    background-color: #3B3F45;;
+    padding: 45px 0;
+}
+#footer button {
+    width: 534px;
+    padding: 12px 0;
+    color: #FF8984;
+    background: #4A4F56;
+    border: none;
+    font-size: 18px;
+    line-height: 21px;
+    display: block;
+    margin: 0 auto;
+}
+.menu_list {
+    width: 100%;
+}
+.menu_list li{
+    border: 2px solid transparent;
+    padding-top: 11px;
+    padding-bottom: 13px;
+    font-size: 18px;
+    line-height: 21px;
+}
+.menu_list input {
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+    margin-left: 12px;
+}
+#lot_pickles {
+    width: 19px;
+    height: 19px;
+}
+small {
+    font-size: 11px;
+    line-height: 13px;
+    padding-top: 12px;
+    padding-bottom: 15px;
+}
+.shopping_list li:nth-child(odd) {
+    background: #88839E;
+}
+.menu_list li:nth-child(even) {
+    background: #7A7593;
+}
+input[type=checkbox]:before {
+	font-family: "FontAwesome";
+    /* content: ""; */
+    font-size: 15px;
+    color: transparent;
+    background: #fef2e0;
+    display: block;
+    width: 19px;
+    height: 19px;
+    margin-right: 17px;
+    text-decoration: underline;
+}
+input[type=checkbox]:checked:before {
+	color: black;
+}
+.menu_list li:hover {
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+
+}
+input[type=checkbox]:checked + label.strikethrough{
+    text-decoration: line-through;
+    color: #9B96AC;
+  }
+  input[type=checkbox]:checked + label.strikethrough + small{
+    text-decoration: line-through;
+    color: #9B96AC;
+  }
