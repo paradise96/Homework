@@ -96,18 +96,18 @@ small {
 .menu_list li:nth-child(even) {
     background: #7A7593;
 }
-input[type=checkbox]:before {
+/* input[type=checkbox]:before {
 	font-family: "FontAwesome";
     /* content: ""; */
-    font-size: 15px;
+    /* font-size: 15px;
     color: transparent;
     background: #fef2e0;
     display: block;
     width: 19px;
     height: 19px;
     margin-right: 17px;
-    text-decoration: underline;
-}
+    text-decoration: underline; */
+/* } */ 
 input[type=checkbox]:checked:before {
 	color: black;
 }
