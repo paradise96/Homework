@@ -24,14 +24,14 @@ h1 {
     
 }
 header {
-    padding-top: 35px;
-    margin-bottom: 35px;
+    padding-top: 40px;
+    margin-bottom: 34px;
 }
 .container {
     width: 90%;
     max-width: 1170px;
     margin: 0 auto;
-    height: 100%;
+    /* height: 100%; */
     /* background-color: #fff; */
 }
 h1 .wi {
@@ -51,8 +51,8 @@ h1 .wi {
     display: inline-block;
     width: calc(25% - 4px);
     margin: 2px;
-    padding-top: 25px;
-    padding-bottom: 27px;
+    padding-top: 35px;
+    padding-bottom: 24px;
 }
 .city-name {
     margin-bottom: 4px;
@@ -111,7 +111,15 @@ h1 .wi {
     line-height: 26px;
     color: rgba(255, 255, 255, 0.7);
 }
+footer {
+    margin-top: 35px;
+    margin-bottom: 120px;
+}
 footer p{
     font-size: 16px;
     line-height: 19px;
+}
+.weather_list li span.wi:before {
+    margin-top: 15px;
+    display: block;
 }
