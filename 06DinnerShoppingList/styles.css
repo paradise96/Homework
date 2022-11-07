@@ -89,6 +89,7 @@ small {
     line-height: 13px;
     padding-top: 12px;
     padding-bottom: 15px;
+    text-decoration: none;
 }
 .shopping_list li:nth-child(odd) {
     background: #88839E;
@@ -120,7 +121,7 @@ input[type=checkbox]:checked + label.strikethrough{
     text-decoration: line-through;
     color: #9B96AC;
   }
-  input[type=checkbox]:checked + label.strikethrough + small{
+  input[type=checkbox]:checked + label.strikethrough > small{
     text-decoration: line-through;
     color: #9B96AC;
   }

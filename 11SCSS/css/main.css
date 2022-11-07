@@ -1,0 +1,219 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+}
+
+.team {
+  padding: 121px 0;
+}
+.team__uptitle {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #898F8F;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.team__title {
+  font-family: "Roboto", sans-serif;
+  color: #FFCC00;
+  text-align: center;
+  font-weight: 900;
+  font-size: 60px;
+  line-height: 66px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+.team__fire {
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  margin-bottom: 40px;
+}
+.team__fire::before {
+  content: "";
+  display: block;
+  width: 210px;
+  border-bottom: 1px solid #FFCC00;
+  margin-left: 25px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+.team__fire::after {
+  content: "";
+  display: block;
+  width: 210px;
+  border-bottom: 1px solid #FFCC00;
+  margin-right: 25px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+.team__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.team__grid_item2 {
+  padding: 70px 0;
+}
+.team__grid_title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 42px;
+  color: #666666;
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: 60px;
+  position: relative;
+}
+.team__grid_title::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: 250px;
+  width: 100px;
+  height: auto;
+  border: 1px solid #FFCC00;
+}
+.team__grid_developer {
+  font-family: "Raleway";
+  text-align: center;
+  text-transform: capitalize;
+  color: #666666;
+  font-size: 24px;
+  line-height: 36px;
+  margin-bottom: 30px;
+}
+.team__grid_text {
+  font-family: "Raleway";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  color: #333333;
+  width: 430px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.team__grid_item1 {
+  position: relative;
+}
+.team__grid_item1::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  bottom: 0;
+  right: -3px;
+  background-color: #FFCC00;
+}
+
+.team__grid_icons {
+  margin: 0 auto;
+  width: 135px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+.team__grid_icons .fa {
+  width: 30px;
+  height: 30px;
+  padding: 8px;
+  color: #CCCCCC;
+  background: #fff;
+  border: 2px solid #CCCCCC;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+}
+
+.sep {
+  height: 4px;
+  width: 50px;
+  background: linear-gradient(to right, #FFCC00 0%, #FFCC00 15%, transparent 15%, transparent 25%, #FFCC00 25%, #FFCC00 75%, transparent 75%, transparent 85%, #FFCC00 85%, #FFCC00 100%);
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+
+.team__grid_btn {
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  padding: 5px 10px;
+  border: 1px solid #FFCC00;
+  margin: 0 auto;
+  color: #666666;
+  background-color: #fff;
+}
+
+.photo_wrap {
+  width: 430px;
+  height: 430px;
+  position: relative;
+  padding: 15px;
+  margin: 30px;
+}
+.photo_wrap::before, .photo_wrap::after {
+  content: "";
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  top: 0;
+  border-top: 1px solid #FFCC00;
+}
+.photo_wrap::before {
+  left: 0;
+  border-left: 1px solid #FFCC00;
+}
+.photo_wrap::after {
+  right: 0;
+  border-right: 1px solid #FFCC00;
+}
+.photo_wrap .wrapper::before, .photo_wrap .wrapper::after {
+  content: "";
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  bottom: 0;
+  border-bottom: 1px solid #FFCC00;
+}
+.photo_wrap .wrapper::before {
+  left: 0;
+  border-left: 1px solid #FFCC00;
+}
+.photo_wrap .wrapper::after {
+  right: 0;
+  border-right: 1px solid #FFCC00;
+}

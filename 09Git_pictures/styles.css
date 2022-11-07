@@ -108,7 +108,7 @@ body {
     grid-row: 3/4;
 }
 .people {
-    padding: 120px;
+    padding: 120px 0;
 }
 .grid_people {
     display: grid;
