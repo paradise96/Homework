@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="fonts/_fonts.css">
     <link rel="stylesheet" href="css/main.min.css">
 </head>
 <body>
@@ -27,10 +26,20 @@
             </nav>
         </div>
     </header>
-    <main>
+    <div class="container flex">
+        <aside class="sidebar">
+            <nav>
+                <ul class="francois sidebar_list">
+                        <li><a href="#" class="sidebar_link">INTRODUCTION</a></li>
+                        <li><a href="#" class="sidebar_link">CORE COMPONENTS</a></li>
+                        <li><a href="#" class="sidebar_link">REACT FUNDAMENTALS</a></li>
+                        <li><a href="#" class="sidebar_link">HANDLING TEXT INPUT</a></li>
+                </ul>
+            </nav>
+        </aside>      
+    <main>      
         <section class="info">
-            <div class="container">
-                <h2 class="francois">INTRODUCTION<sup class="farro">Chapter 1</sup></h2>
+                <h2 class="francois" id="introduction">INTRODUCTION<sup class="farro">Chapter 1</sup></h2>
                 <p class="pt_sans">Welcome to the very start of your React Native journey! 
                     If you're looking for environment setup instructions, 
                     they've moved to <span class="underline">their own section</span>. Continue reading for an introduction 
@@ -72,8 +81,8 @@
                     you're translating their words into a different language. In this new language, 
                     every single word is written the same way: 🍕. 
                     So the sentence "Hello there Bob" would be translated as "🍕 🍕".</p>  
-            </div>
         </section>
     </main>
+    </div>
 </body>
 </html>

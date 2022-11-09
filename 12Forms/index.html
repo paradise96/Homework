@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/jquery.formstyler.css">
+    <link rel="stylesheet" href="plugins/jquery.formstyler.theme.css">
+    <link rel="stylesheet" href="./css/style.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="account">
+            <h2 class="header">Create an Account</h2>
+            <form action="#" method="post">
+                <div class="form_row">
+                    <label for="first_name">First name</label>
+                    <div class="form-elem">
+                        <input type="text" name="name" id="first_name">
+                    </div>
+                </div>
+                <div class="form_row">
+                    <label for="last_name">Last name</label>
+                    <div class="form-elem">
+                        <input type="text" name="name" id="last_name">
+                    </div>
+                </div>
+                <div class="form_row">
+                    <label for="email">Your email</label>
+                    <div class="form-elem">
+                        <input type="email" name="email" id="email">
+                        <span class="email_span">We'll never share your email with anyone else.</span>
+                    </div>              
+                </div>
+                <div class="form_row">
+                    <div class="form-elem">
+                        <input type="radio" name="gender" value="m" id="male">
+                        <label for="male">Male</label>
+                    </div>              
+                </div>
+                <div class="form_row">
+                    <div class="form-elem">
+                        <input type="radio" name="gender" value="f" id="female">
+                        <label for="female">Female</label>
+                    </div>              
+                </div>    
+                <div class="form_row">
+                    <label for="country">Country</label>
+                    <div class="form-elem">
+                        <select name="country" id="country" placeholder="Select">
+                            <option value="USA">USA</option>
+                            <option value="Ukraine">Ukraine</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Germany">Germany</option>
+                        </select>
+                    </div> 
+                </div>
+                <div class="form_row">
+                    <label for="city">City</label>
+                    <div class="form-elem">
+                        <input type="text" name="city" id="city">
+                    </div>
+                </div>
+                <div class="btn_sign_up">
+                    <button type="submit" >Sign up</button>
+                </div>
+                <div class="terms_of_use">
+                    By clicking the 'Sign Up' button, you confirm that you accept our
+                    <a href="#" class="form_links">Terms of Use</a> 
+                    and <a href="#" class="form_links">Privacy Policy</a>
+                </div>
+                <div class="acc_div">
+                    <div class="acc">Have an account?</div>
+                    <div class="btn_log_in">
+                        <button type="submit">Log In</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="profile">
+            <h2 class="header">Profile</h2>
+            <form action="#" method="post">
+                <div class="profile_img">
+                    <img src="img/📷 Image.png" alt="Profile image">
+                </div>
+                <div class="form_row">
+                    <div class="form-elem">
+                        <input type="file" name="file" id="photo">
+                    </div>
+                </div>
+                <div class="form_row">
+                    <div class="form-elem">
+                        <input type="reset" name="file" id="delete">
+                    </div>
+                </div>
+                <div class="form_row">
+                    <label for="user_name">Name</label>
+                    <div class="form-elem">
+                        <input type="text" name="user_name" id="user_name">
+                    </div>
+                </div>
+                <div class="form_row">
+                    <label for="sec_email">Email</label>
+                    <div class="form-elem">
+                        <input type="email" name="user_name" id="sec_email">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" 
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" 
+    crossorigin="anonymous"></script>
+ <script src="plugins/jquery.formstyler.min.js"></script>
+ <script>
+    (function($) {
+$(function() {
+
+	$('select').styler();
+
+});
+})(jQuery);
+ </script>
+</body>
+</html>

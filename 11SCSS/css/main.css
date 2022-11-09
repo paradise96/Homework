@@ -102,7 +102,8 @@ a {
   content: "";
   position: absolute;
   bottom: -30px;
-  left: 250px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100px;
   height: auto;
   border: 1px solid #FFCC00;
@@ -148,17 +149,6 @@ a {
   justify-content: space-between;
   margin-bottom: 50px;
 }
-.team__grid_icons .fa {
-  width: 30px;
-  height: 30px;
-  padding: 8px;
-  color: #CCCCCC;
-  background: #fff;
-  border: 2px solid #CCCCCC;
-  border-radius: 50%;
-  text-align: center;
-  text-decoration: none;
-}
 
 .sep {
   height: 4px;
@@ -187,6 +177,7 @@ a {
 }
 .photo_wrap::before, .photo_wrap::after {
   content: "";
+  position: absolute;
   display: inline-block;
   width: 100px;
   height: 100px;
@@ -203,6 +194,7 @@ a {
 }
 .photo_wrap .wrapper::before, .photo_wrap .wrapper::after {
   content: "";
+  position: absolute;
   display: inline-block;
   width: 100px;
   height: 100px;
@@ -216,4 +208,23 @@ a {
 .photo_wrap .wrapper::after {
   right: 0;
   border-right: 1px solid #FFCC00;
+}
+
+.social_list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.social_list a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: #CCCCCC;
+  background: #fff;
+  border: 2px solid #CCCCCC;
+  border-radius: 50%;
+  text-decoration: none;
 }

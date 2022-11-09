@@ -97,7 +97,8 @@ a {
       content:'';
       position: absolute;
       bottom: -30px;
-      left:250px;
+      left:50%;
+      transform: translateX(-50%);
       width: 100px;
       height: auto;
       border: 1px solid #FFCC00;
@@ -144,17 +145,6 @@ a {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 50px;
-  .fa {
-    width: 30px;
-    height: 30px;
-    padding: 8px;
-    color: #CCCCCC;
-    background: #fff;
-    border: 2px solid #CCCCCC;
-    border-radius: 50%;
-    text-align: center;
-    text-decoration: none;
-  }
 }
 .sep{
     height: 4px;
@@ -181,6 +171,7 @@ a {
   margin: 30px;
   &::before, &::after {
     content: '';
+    position: absolute;
     display: inline-block;
     width: 100px;
     height: 100px;
@@ -199,6 +190,7 @@ a {
     // border: 1px solid #FFCC00;
     &::before, &::after {
       content: '';
+      position: absolute;
       display: inline-block;
       width: 100px;
       height: 100px;
@@ -215,10 +207,22 @@ a {
     }
   }
 }
+.social_list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  a {
+    display: inline-flex;
+    align-items:center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    color: #CCCCCC;
+    background: #fff;
+    border: 2px solid #CCCCCC;
+    border-radius: 50%;
+    text-decoration: none;
+  }
+}
 
-//   }
-// background: #fff url('../images/picture') right 0 top 105px no-repeat
-// background-attachment: fixed;
-// 
-//   background-size: 50px 30px;
-// }
