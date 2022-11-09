@@ -26,9 +26,35 @@ ul, ol {
 #header {
   padding: 13px 0;
 }
-#header .tourney {
+
+.navigation_list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.navigation_list li:last-child {
+  margin-left: auto;
+}
+.navigation_list a {
+  text-decoration: none;
+  color: #000000;
+}
+.navigation_list a:visited {
+  text-decoration: none;
+  color: #000000;
+}
+
+.tourney {
+  font-family: "Tourney";
+  margin-right: 54px;
   font-size: 22px;
   line-height: 18px;
+}
+
+.staat {
+  font-family: "Staatliches", cursive;
+  font-size: 24px;
+  margin-right: 10px;
 }
 
 .grid {
