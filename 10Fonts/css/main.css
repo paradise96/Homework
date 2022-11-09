@@ -95,27 +95,61 @@ main {
   position: sticky;
   top: 100px;
   left: 0;
+  margin-top: 82px;
+  margin-left: 10px;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.sidebar li {
+  margin-bottom: 80px;
+  position: relative;
+}
+.sidebar li::after {
+  content: "";
+  display: block;
+  width: 365px;
+  border-bottom: 1px solid #BDBDBD;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
 }
 
 .info {
-  margin-left: auto;
+  margin-top: 99px;
+  margin-left: 44px;
 }
 
 .info h2 {
-  margin: 65px 0 40px 0;
+  margin-bottom: 45px;
+  position: relative;
+  width: 234px;
   font-size: 36px;
   line-height: 48px;
   letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.info h2::before {
+  content: "";
+  display: block;
+  width: 100px;
+  border-top: 8px solid #000000;
+  position: absolute;
+  top: -28px;
+  left: 0px;
 }
 .info h2 sup {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 30px;
   margin-left: 10px;
+  position: absolute;
+  top: -8px;
+  right: -100px;
 }
 
 p {
   font-size: 28px;
   line-height: 48px;
+  margin-bottom: 99px;
 }
 
 .navigation_list {
@@ -126,10 +160,18 @@ p {
 .navigation_list li:last-child {
   margin-left: auto;
 }
+.navigation_list a {
+  text-decoration: none;
+  color: #000000;
+}
+.navigation_list a:visited {
+  text-decoration: none;
+  color: #000000;
+}
 
 .tourney {
   font-family: "Tourney";
-  margin-right: 50px;
+  margin-right: 54px;
 }
 
 .francois {
@@ -160,6 +202,7 @@ p {
 
 .staat {
   font-family: "Staatliches", cursive;
+  font-size: 24px;
   margin-right: 10px;
 }
 
@@ -172,5 +215,5 @@ p {
 
 #introduction {
   margin-top: 0;
-  margin-bottom: 45px;
+  margin-bottom: 39px;
 }

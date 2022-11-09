@@ -52,25 +52,59 @@ main {
     position: sticky;
     top: 100px;
     left: 0;
-    // padding-top: 70px;
+    margin-top: 82px;
+    margin-left: 10px;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    li {
+        margin-bottom: 80px;
+        position: relative;
+        &::after{
+            content: '';
+            display: block;
+            width: 365px;
+            border-bottom: 1px solid #BDBDBD;
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+        }
+    }
   }
   .info {
-    margin-left: auto;
+    margin-top: 99px;
+    margin-left: 44px;
   }
 .info h2{
-    margin: 65px 0 40px 0;
+    // margin: 65px 0 40px 0;
+    margin-bottom: 45px;
+    position: relative;
+    width: 234px;
     font-size: 36px;
     line-height: 48px;
     letter-spacing: 0.04em;
+    white-space: nowrap;
+    &::before {
+        content: '';
+        display: block;
+        width: 100px;
+        border-top: 8px solid #000000;;
+        position: absolute;
+        top: -28px;
+        left: 0px;
+    }
     sup {
-        font-size: 16px;
+        font-size: 17px;
         line-height: 30px;
         margin-left: 10px;
+        position: absolute;
+        top: -8px;
+        right: -100px;
     }
 }
 p{
     font-size: 28px;
     line-height: 48px;
+    margin-bottom: 99px;
 }
 
 .navigation_list {
@@ -80,11 +114,18 @@ p{
     & li:last-child{
         margin-left: auto;
     }
+    a {
+        text-decoration: none;
+        color: #000000;
+        &:visited {
+            text-decoration: none;
+            color: #000000;
+        }
+    }
 }
-
 .tourney {
     font-family: 'Tourney';
-    margin-right: 50px;
+    margin-right: 54px;
 }
 .francois {
     font-family: 'Francois One';
@@ -108,12 +149,9 @@ p{
 }
 .staat {
     font-family: 'Staatliches', cursive;
+    font-size: 24px;
     margin-right: 10px;
 }
-// .sidebar {
-//     border: 2px solid green;
-
-// }
 .sidebar_link{
     color: #000000;
     text-decoration: none;
@@ -122,5 +160,5 @@ p{
 }
 #introduction {
     margin-top: 0;
-    margin-bottom: 45px;
+    margin-bottom: 39px;
 }
