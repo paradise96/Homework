@@ -63,3 +63,7 @@ ul, ol {
   grid-template-rows: repeat(2, 1fr);
   gap: 30px;
 }
+.grid_item {
+  background-color: #E6E6E6;
+  border-radius: 8px;
+}
