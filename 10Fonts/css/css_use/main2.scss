@@ -48,13 +48,76 @@ ul, ol {
     font-size: 24px;
     margin-right: 10px;
 }
+.roboto {
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 48px;
+    color: #000000;
+    margin: 70px 0 60px 120px;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        border-bottom: 8px solid #000;
+        width: 100px;
+        top: 21px;
+        left: -115px;
+    }
+}
 .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 30px;
-    &_item{
-        background-color: #E6E6E6;;
-        border-radius: 8px;
+    position: relative;
+    // transition: all .3s ease;
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        border: 1px solid #BFBFBF;
+        top: -20px;
+        left: 0;
     }
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        border: 1px solid #BFBFBF;
+        bottom: -20px;
+        left: 0;
+    }
+    &_item{
+        background-color: #E6E6E6;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all .3s ease;
+    }
+}
+.grid_item:hover {
+    cursor: pointer;
+    transform: rotateX(180deg);
+    background-color: #000;
+}
+img {
+    // transition: all .3s ease;
+    transform: rotateX(0deg);
+    filter: invert(0) grayscale(0);
+    &:hover {
+        filter: invert(100%) grayscale(100%);
+    }
+}
+.shopify {
+    background-color: #000;
+    &:hover {
+        background-color: #E6E6E6;
+    }
+}
+.pic {
+    width: 160px;
+    height: 140px;
 }

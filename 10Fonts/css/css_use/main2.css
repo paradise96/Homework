@@ -57,13 +57,79 @@ ul, ol {
   margin-right: 10px;
 }
 
+.roboto {
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 48px;
+  color: #000000;
+  margin: 70px 0 60px 120px;
+  position: relative;
+}
+.roboto::before {
+  content: "";
+  position: absolute;
+  display: block;
+  border-bottom: 8px solid #000;
+  width: 100px;
+  top: 21px;
+  left: -115px;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 30px;
+  position: relative;
+}
+.grid::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  border: 1px solid #BFBFBF;
+  top: -20px;
+  left: 0;
+}
+.grid::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  border: 1px solid #BFBFBF;
+  bottom: -20px;
+  left: 0;
 }
 .grid_item {
   background-color: #E6E6E6;
   border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.grid_item:hover {
+  cursor: pointer;
+  transform: rotateX(180deg);
+  background-color: #000;
+}
+
+img {
+  transform: rotateX(0deg);
+  filter: invert(0) grayscale(0);
+}
+img:hover {
+  filter: invert(100%) grayscale(100%);
+}
+
+.shopify {
+  background-color: #000;
+}
+.shopify:hover {
+  background-color: #E6E6E6;
+}
+
+.pic {
+  width: 160px;
+  height: 140px;
 }
