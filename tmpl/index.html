@@ -8,13 +8,44 @@
   <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
 <body>
-  <div class="container">
+  <div id="mobile_menu_wrap">
+
+  </div>
+  <div id="shadow">
+
+  </div>
+  <header id="header">
+    <div class="container">
+      <div id="logo">
+        <a href="#">Logo</a>
+      </div>
+      <nav id="main_nav_wrap">
+        <ul id="main_menu" class="lvl_1">
+          <li><a href="#">About us</a>
+            <ul class="lvl_2">
+              <li><a href="#">About company</a>
+              <ul class="lvl_3">
+                <li><a href="#">register</a></li>
+              </ul>
+              </li>
+              <li><a href="#">Our team</a></li>
+              <li><a href="#">Our partner</a></li>
+            </ul>
+          </li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Contacts</a></li>
+          <li><a href="#">Information</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- <div class="container">
   <form action="#"></form>
   <div class="form-row">
     <div class="form-elem">
       <div class="switcher">
         <!--data-placeholder-->
-        <input type="checkbox" name="agree" id="agree">
+        <!-- <input type="checkbox" name="agree" id="agree">
         <label for="agree"></label>
       </div>
     </div>
@@ -23,6 +54,15 @@
       <rect x="10" y="10" width="80" height="80" fill="tomato"/>
       <circle cx="50" cy="50" r="30" fill="blue" />
     </svg>
-  </div>
+  </div> -->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" 
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script>
+    $(function(){
+      $('.toggle_menu').on('click', function(){
+        $(this).parents('.item_wrap').next('ul').slideToggle(200)
+      })
+    })
+  </script>
 </body>
 </html>

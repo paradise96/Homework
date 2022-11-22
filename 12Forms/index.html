@@ -17,57 +17,65 @@
         <div class="account">
             <h2 class="header">Create an Account</h2>
             <form action="#" method="post">
-                <div class="form_row">
-                    <label for="first_name">First name</label>
-                    <div class="form-elem">
-                        <input type="text" name="name" id="first_name">
+                <div class="grid">
+                    <div class="form_row">
+                        <label for="first_name">First name</label>
+                        <div class="form-elem">
+                            <input type="text" name="name" id="first_name">
+                        </div>
+                    </div>
+                    <div class="form_row">
+                        <label for="last_name">Last name</label>
+                        <div class="form-elem w_50">
+                            <input type="text" class="iw_100" name="name" id="last_name">
+                        </div>
                     </div>
                 </div>
                 <div class="form_row">
-                    <label for="last_name">Last name</label>
-                    <div class="form-elem">
-                        <input type="text" name="name" id="last_name">
-                    </div>
-                </div>
-                <div class="form_row">
-                    <label for="email">Your email</label>
+                    <label for="email" class="email_m">Your email</label>
                     <div class="form-elem">
                         <input type="email" name="email" id="email">
                         <span class="email_span">We'll never share your email with anyone else.</span>
                     </div>              
                 </div>
-                <div class="form_row">
-                    <div class="form-elem">
-                        <input type="radio" name="gender" value="m" id="male">
-                        <label for="male">Male</label>
-                    </div>              
-                </div>
-                <div class="form_row">
-                    <div class="form-elem">
-                        <input type="radio" name="gender" value="f" id="female">
-                        <label for="female">Female</label>
-                    </div>              
-                </div>    
-                <div class="form_row">
-                    <label for="country">Country</label>
-                    <div class="form-elem">
-                        <select name="country" id="country" placeholder="Select">
-                            <option value="USA">USA</option>
-                            <option value="Ukraine">Ukraine</option>
-                            <option value="Sweden">Sweden</option>
-                            <option value="Poland">Poland</option>
-                            <option value="Germany">Germany</option>
-                        </select>
-                    </div> 
-                </div>
-                <div class="form_row">
-                    <label for="city">City</label>
-                    <div class="form-elem">
-                        <input type="text" name="city" id="city">
+                <div class="flex_radio">
+                    <div class="form_row">
+                        <div class="form-elem">
+                            <input type="radio" name="gender" value="m" id="male">
+                            <label for="male">Male</label>
+                        </div>              
                     </div>
+                    <div class="form_row">
+                        <div class="form-elem">
+                            <input type="radio" name="gender" value="f" id="female">
+                            <label for="female">Female</label>
+                        </div>              
+                    </div>
+                </div>   
+                <div class="grid">
+                    <div class="form_row">
+                        <label for="country">Country</label>
+                        <div class="form-elem">
+                            <select name="country" id="country" placeholder="Select">
+                                <option value="Select">Select</option>
+                                <option value="USA">USA</option>
+                                <option value="Ukraine">Ukraine</option>
+                                <option value="Sweden">Sweden</option>
+                                <option value="Poland">Poland</option>
+                                <option value="Germany">Germany</option>
+                            </select>
+                        </div> 
+                    </div>
+                 
+                    <div class="form_row">
+                        <label for="city">City</label>
+                            <div class="form-elem">
+                                <input type="text" name="city" id="city">
+                            </div>
+                </div>
                 </div>
                 <div class="btn_sign_up">
-                    <button type="submit" >Sign up</button>
+                    <button class="button_bl b_big" type="submit" >Sign up</button>
                 </div>
                 <div class="terms_of_use">
                     By clicking the 'Sign Up' button, you confirm that you accept our
@@ -77,38 +85,87 @@
                 <div class="acc_div">
                     <div class="acc">Have an account?</div>
                     <div class="btn_log_in">
-                        <button type="submit">Log In</button>
+                        <button class="btn_log" type="submit">Log In</button>
                     </div>
                 </div>
             </form>
         </div>
+
         <div class="profile">
             <h2 class="header">Profile</h2>
             <form action="#" method="post">
-                <div class="profile_img">
-                    <img src="img/📷 Image.png" alt="Profile image">
-                </div>
-                <div class="form_row">
-                    <div class="form-elem">
-                        <input type="file" name="file" id="photo">
+                <div class="flex_profile">
+                    <div class="profile_img mrg mrg_r">
+                        <img src="img/📷 Image.png" alt="Profile image">
+                    </div>
+                    <div class="form_row">
+                        <div class="form-elem column">
+                            <div class="photo">
+                                <img src="img/🔹 icon.svg" alt="" class="photo_r">
+                                <input type="file" name="file" id="photo" value="">
+                            </div>
+                            <span class="photo_load">Up to 1 MB (300x300 px)</span>
+                        </div>
+                    </div>
+                    <div class="form_row">
+                        <div class="form-elem mrg_btm">
+                           <button type="reset" class="btn_reset">
+                            <img src="img/Trash.svg" alt="reset button">
+                           </button>
+                        </div>
                     </div>
                 </div>
-                <div class="form_row">
-                    <div class="form-elem">
-                        <input type="reset" name="file" id="delete">
+                <div class="grid">
+                    <div class="form_row mrg">
+                        <label for="user_name">Name</label>
+                        <div class="form-elem">
+                            <input type="text" name="user_name" id="user_name">
+                        </div>
+                    </div>
+                    <div class="form_row mrg">
+                        <label for="sec_email">Email</label>
+                        <div class="form-elem">
+                            <input type="email" name="user_name" id="sec_email">
+                        </div>                      
                     </div>
                 </div>
-                <div class="form_row">
-                    <label for="user_name">Name</label>
-                    <div class="form-elem">
-                        <input type="text" name="user_name" id="user_name">
+                <div class="grid">
+                    <div class="form_row">
+                        <label for="country_prof">Country</label>
+                        <div class="form-elem mrg">
+                            <select name="country" id="country_prof" placeholder="Select">
+                                <option value="Select">Select</option>
+                                <option value="USA">USA</option>
+                                <option value="Ukraine">Ukraine</option>
+                                <option value="Sweden">Sweden</option>
+                                <option value="Poland">Poland</option>
+                                <option value="Germany">Germany</option>
+                            </select>
+                        </div> 
+                    </div>
+                    <div class="form_row">
+                        <label for="city_prof">City</label>
+                        <div class="form-elem mrg">
+                            <input type="text" name="city" id="city_prof">
+                        </div>
                     </div>
                 </div>
-                <div class="form_row">
-                    <label for="sec_email">Email</label>
-                    <div class="form-elem">
-                        <input type="email" name="user_name" id="sec_email">
+                <div class="grid">
+                    <div class="form_row mrg">
+                        <label for="zip">Zip Code</label>
+                        <div class="form-elem">
+                            <input type="text" name="zip" id="zip">
+                        </div>
                     </div>
+                    <div class="form_row mrg">
+                        <label for="tel">Phone number</label>
+                        <div class="form-elem">
+                            <input type="tel" name="tel" id="tel">
+                        </div>
+                    </div>
+                </div>
+                <div class="btn_prof">
+                    <button class="button_bl b_medium">Update</button>
                 </div>
             </form>
         </div>
@@ -126,5 +183,10 @@ $(function() {
 });
 })(jQuery);
  </script>
+ <!-- <script>
+    function toggleMenu() {
+        document.getElementById("mobile_menu").classList.toggle('open')
+    }
+ </script> -->
 </body>
 </html>
