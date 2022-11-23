@@ -101,32 +101,60 @@ ul, ol {
 }
 .grid_item {
   background-color: #E6E6E6;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
 }
 
-.grid_item:hover {
-  cursor: pointer;
+.grid_wrap {
+  width: 270px;
+  height: 180px;
+  perspective: 1000px;
+  background-color: #E6E6E6;
+  border-radius: 8px;
+}
+
+.grid_rotator {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 8px;
+}
+
+.grid_wrap:hover .grid_rotator {
   transform: rotateX(180deg);
-  background-color: #000;
+  cursor: pointer;
 }
 
-img {
-  transform: rotateX(0deg);
-  filter: invert(0) grayscale(0);
+.grid_item, .grid_back, .grid_shopify {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
 }
-img:hover {
-  filter: invert(100%) grayscale(100%);
+
+.grid_back {
+  background-color: #000;
+  transform: rotateX(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid_shopify {
+  background-color: #E6E6E6;
+  transform: rotateX(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .shopify {
   background-color: #000;
-}
-.shopify:hover {
-  background-color: #E6E6E6;
 }
 
 .pic {
