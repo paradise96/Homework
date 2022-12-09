@@ -1,0 +1,30 @@
+body {
+    text-align: center;
+    color: #fff;
+    background-image: url(image/green.jpg);
+    font-family: 'Trebuchet MS', cursive;
+    font-weight: 700;
+}
+h1 {
+    color: goldenrod;
+}
+#message-el {
+    font-style: italic;
+}
+button {
+    color: #016f32;
+    width: 150px;
+    height: 50px;
+    background-color: goldenrod;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+button:hover {
+    cursor: pointer;
+}
