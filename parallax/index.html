@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Document</title>
+
+	<link rel="stylesheet" href="./css/style.min.css">
+
+	<script src="./gsap/gsap.min.js" defer></script>
+	<script src="./gsap/ScrollTrigger.min.js" defer></script>
+	<script src="./gsap/ScrollSmoother.min.js" defer></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+
+</head>
+<body>
+    <h1 id="heading">Find the buried treasure</h1>
+    <img id="map" width="700" height="700" src="img/treasuremap.png" alt="">
+    <p id="distance"></p>
+<!-- <h2 id="header">I started this gangsta shit</h2>
+<h1 id="head">Hello muthufucka</h1> -->
+	<!-- <div class="wrapper">
+		<div class="content">
+
+			<header class="main-header">
+				<div class="layers">
+					<div class="layer__header">
+						<div class="layers__caption">Welcome to Parallax</div>
+						<div class="layers__title">Fairy Forest</div>
+					</div>
+					<div class="layer layers__base" style="background-image: url(./img/zyro-image.png);"></div>
+					<div class="layer layers__middle" style="background-image: url(./img/middle.png);"></div>
+					<div class="layer layers__front" style="background-image: url(./img/bottom.png);"></div>
+				</div>
+			</header>
+		
+			<article class="main-article" style="background-image: url(./img/cosmos.png)">
+				<div class="main-article__content">
+					<h2 class="main-article__header">To be continued</h2>
+					<p class="main-article__paragraph">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis error provident dignissimos facere. Repellendus tempore autem qui! Quia magnam tempora esse id necessitatibus corrupti mollitia expedita sapiente cum rerum, ut dicta laboriosam!</p>
+				</div>
+				<div class="copy">© WebDesign Master</div>
+			</article>
+
+		</div>
+	</div> -->
+    <script
+    src="https://code.jquery.com/jquery-2.2.4.js"
+    integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+    crossorigin="anonymous"></script>
+    <script>
+        const width = 700;
+        const heading = 700;
+        let clicks = 0;
+        
+        let getRandomNumber = function(size) {
+            return Math.floor(Math.random() * size);
+        }
+        const target = {
+            x: getRandomNumber(width),
+            y: getRandomNumber(heading)
+        };
+        let getDistance = function(event, target){
+            let diffX = event.offsetX - target.x;
+            let diffY = event.offsetY - target.y;
+            return Math.sqrt((diffX*diffX) + (diffY * diffY));
+        }
+        let getDistanceHint = function(distance) {
+            if (distance < 10) {
+                return "Boiling hot!"
+            } else if (distance < 20) {
+                return "Really hot";
+            } else if (distance < 40) {
+                return "Hot!"
+            } else if(distance < 80) {
+                return "Warm";
+            } else if(distance < 160) {
+                return "Cold";
+            } else if(distance < 320) {
+                return "Really cold";
+            } else {
+                return "Freezing!"
+            }
+}
+        
+        $("map").click(function(event){
+            clicks++;
+            let distance = getDistance(event, target);
+            let distanceHint = getDistanceHint(distance);
+            $("#distance").text(distanceHint);
+            if(distance < 8) {
+                alert("Found treasure in " + clicks +" clicks!");
+            }
+        });
+     
+       
+        // let newHeadingText = prompt("please insert new header");
+        // $("#head").text(newHeadingText);
+        // for (let index = 0; index < 3; index++) {
+        //     const hobby = prompt("Tell me one of your hobbies?");
+        //     $("body").append("<p>" + hobby + "</p>");
+        // }
+    //    $("h1").fadeOut(10000);
+    //    $("h1").text("This will fade out").fadeOut(3000).fadeIn(3000);
+        
+    //    $("h2").slideUp(2000).slideDown(3000);
+    //    $("h1").text("This will fade out").fadeIn(3000);
+        // $("h1").text("This will fade out").fadeOut(3000);
+        // $("h1").text("This will fade out").fadeIn(3000);
+        // $("h2").hide(3000);
+        // $("h2").show(3000);
+        // const friends = ["DIMA", "Petro", "Diana", "Billy"];
+        // for (let i = 0; i < friends.length; i++) {
+        //     $("body").append("<p>" + friends[i] + "</p>");      
+        // }
+        // $("h1").text("My friends");
+        // $("p").hide(1000).fadeIn(1000);
+        // $("p").append(" smells!");
+        // for (let i = 0; i < array.length; i++) {
+            // $("h1").fadeTo(2000, 1);
+            // $("h1").delay(1000).fadeOut(2000).fadeIn(2000);
+            // var fadeTime;
+            //     for (var i = 0; i < 5; i++) {
+            //         fadeTime = (i + 1) * 1000;
+            //     $("#head").fadeOut(fadeTime / 2).fadeIn(fadeTime / 2);
+            //     }
+            //     let doHomeworkAlarm = function () {
+            //         alert("Hey yo look at me!!!")
+            //     }
+                // setInterval(doHomeworkAlarm, 2000);
+                // clearTimeout(doHomeworkAlarm, 3000);
+                // let timeoutId = setTimeout(doHomeworkAlarm, 60000);
+                // clearTimeout(timeoutId);
+     
+        // }
+        // let leftOffset = 0;
+        // const moveHeading = function() {
+        //     $("#head").offset({left: leftOffset });
+        //     leftOffset++;
+        //     if( leftOffset > 200) {
+        //         leftOffset = 0;
+        //     }
+        // }
+        // setInterval(moveHeading, 30);
+
+        //Функція створена для відслідкування куди клацнув користувач на якийсь з елементів
+        // const clickHandler = function() {
+        //     console.log("Click!" + event.pageX + " " + event.pageY);
+        // }
+        // $("h1").click(clickHandler);
+            // Синтаксичний обробник подій
+        // $("html").mousemove(function (event) {
+        //     $("head").offset({
+        //         left: event.pageX,
+        //         top: event.pageY
+        //     })
+        // });
+    </script>
+    <!-- <script src="./js/index.js"></script> -->
+</body>
+</html>

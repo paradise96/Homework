@@ -10,7 +10,6 @@ var message = "";
 var messageEl = document.getElementById("message-el");
 var sumEl = document.querySelector("#sum-el");
 var cardsEl = document.getElementById("cards-el");
-console.log(17);
 var player = {
   name: "Dima",
   chips: 150

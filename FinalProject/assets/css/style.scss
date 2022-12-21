@@ -1,0 +1,385 @@
+@import '_fonts';
+
+// @mixin fz($size_px) {
+//   font-size: ($size_px / $base-size) * 1rem;
+// }
+
+$blue-color: #5373FD;
+$text-color: #fff;
+$dark-color: #333333;
+$footer-color: #000;
+
+  // COMMON CSS FOR THE PAGE
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+html, body {
+    width: 100%;
+    height: 100%;
+  }
+ul, ol {
+    list-style: none;
+  }
+
+a, button {
+    cursor: pointer;
+    transition: all .3s ease;
+  }  
+a {
+  color: $text-color;
+  text-decoration: none;
+}
+.container {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1440px;
+}
+body {
+    font-family: 'Aleo Regular';
+    color: $text-color;
+    // overflow: hidden;
+}
+
+//CLASSES FOR FONTS
+.josefin_bold {
+  font-family: 'Josefin Bold';
+  font-weight: 700;
+}
+.josefin_regular {
+  font-family: 'Josefin Regular';
+  font-weight: 400;
+}
+.josefin_light {
+  font-family: 'Josefin Light';
+  font-weight: 300;
+}
+// BUTTON STYLES
+.btn {
+  text-transform: uppercase;
+  color: $text-color;
+  background-color: #5373FD;
+  border: none;
+  &_medium {
+    height: 52px;
+    padding: 0 24px;
+  }
+  &_small {
+    height: 60px;
+    padding: 0 57px;
+  }
+  &_large {
+    height: 60px;
+    padding: 0 32px;
+  }
+  &_margin {
+    margin-top: 32px;
+  }
+}
+.inline-flex {
+  display: inline-flex;
+  align-items: center;
+}
+//FIRST SCREEN
+.first_screen{
+  height: calc(100vh - 84px);
+  width: 100%;
+  background: url(../img/firstscreen-min.png) center center/cover no-repeat;
+  > .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .header {
+    font-size: 48px;
+    line-height: 52px;
+    text-transform: uppercase;
+    @extend .josefin_bold;
+    margin-bottom: 8px;
+  }
+  .subheader {
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: 0.31em;
+    margin-bottom: 48px;
+  }
+  .form_wrapper {
+    width: 647px;
+    position: relative;
+  }
+  #input_main {
+    width: 100%;
+    outline: none;
+    height: 60px;
+    padding: 20px 0 20px 36px;
+    &::placeholder {
+      @extend .josefin_regular;
+      font-size: 14px;
+      line-height: 20px;
+      color: #999999;
+      letter-spacing: 0.2em;
+    }
+  }
+  .btn_medium {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 4px 5px 4px 0;
+  }
+  .link {
+    @extend .josefin_regular;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2em;
+    margin-top: 211px;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      left: 37px;
+      bottom: -17px;
+      border-top: 3px solid #fff;
+      border-left: 3px solid #fff;
+      transform: rotate(227deg);
+      cursor: pointer;
+    }
+  }
+}
+
+//HEADER STYLING
+#header {
+  height: 84px;
+  background-color: $blue-color;
+  >.container {
+    height: 100%;
+  }
+  .main_navigation {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav_list {
+    display: flex;
+    gap: 40px;
+  }
+  .logo a {
+    @extend .josefin_bold;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .nav_list a{
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+  }
+}
+
+//SECOND SECTION
+.choice {
+  background: url(../img/secondscreen-min.png) center center/cover no-repeat;
+  background-color: rgb(101, 96, 96);
+  padding: 124px 0;
+  >.container{
+    display: flex;
+    gap: 134px;
+  }
+  &_why {
+    max-width: 634px;
+    width: 100%;
+    padding: 80px 0;
+  }
+  &_header {
+    font-size: 36px;
+    line-height: 40px;
+    text-transform: capitalize;
+    margin-bottom: 24px;
+  }
+  &_text {
+    @extend .josefin_light;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.1em;
+  }
+  .mrg_text {
+    margin-bottom: 20px;
+  }
+  &_img {
+    max-width: 424px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    &_second {
+      align-self: flex-end;
+    }
+  }
+}
+
+
+//THIRD SMALL SECTION WITH SEARCH ICON
+.search {
+  background-color: $dark-color;
+  padding: 107px 0 60px 0;
+  >.container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  &_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &_text{
+    font-size: 36px;
+    line-height: 40px;
+    text-transform: capitalize;
+    margin-top: 20px;
+  }
+}
+
+//FOURTH SECTION 
+.spain {
+  background: url(../img/thirdscreen-min.png) center center/cover no-repeat;
+  padding: 220px 0 120px 0;
+}
+.card {
+  max-width: 648px;
+  width: 100%;
+  background: rgba(35, 35, 35, 0.9);
+  padding: 44px 32px;
+  &_supheader {
+    @extend .josefin_light;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+  &_header {
+    @extend .josefin_regular;
+    font-size: 20px;
+    line-height: 28px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  &_text {
+    @extend .josefin_light;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+  }
+}
+
+//FIFTH SECTION WITH THE SAME CARD AS ABOVE
+.house {
+  background: url(../img/fourthscreen-min.png) center center/cover no-repeat;
+  padding: 220px 0 120px 0;
+  >.container {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+//SIXTH SSECTION WITH A FEEDBACK FROM A TOURIST
+.feedback {
+  background: url(../img/fifthscreen-min.png) center center/cover no-repeat;
+  padding: 120px 0 180px 0;
+  &_header {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 36px;
+    line-height: 40px;
+    text-transform: capitalize;
+  }
+  &_wrapper {
+    display: flex;
+  }
+  &_info {
+    padding: 48px 65px 48px 60px;
+    background-color: $dark-color;
+  }
+  &_title {
+    @extend .josefin_regular;
+    font-size: 20px;
+    line-height: 28px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  &_text {
+    @extend .josefin_light;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.1em;
+  }
+  .img_quotes {
+    height: 20px;
+    width: 20px;
+  }
+}
+//FOOTER
+#footer {
+  background-color: $footer-color;
+  padding: 80px;
+  .footer_title{
+    @extend .josefin_bold;
+    text-align: center;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .footer_subtitle{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2em;
+    margin: 0 auto;
+  }
+ 
+}
+//ICONS 
+svg {
+  width: 64px;
+  height: 64px;
+}
+.search_icon_logo {
+  width: 16px;
+  height: 16px;
+  margin-right: 16px;
+}
+.pseudo {
+  position: relative;
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-top: 1px dashed rgba(#fff, .5);
+    // width: 200px;
+    // height: 200px;
+    width: 500px;
+    height: 90px;
+    left: 100px;
+    top: 0;
+    border-radius: 40%;
+    }
+    &::after{
+      right: 71px;
+      top: -73px;
+      content: "";
+      display: block;
+      position: absolute;
+      border-top: 1px dashed rgba(255,255,255,.5);
+      width: 413px;
+      height: 219px;
+      border-radius: 50%;
+    }
+  }

@@ -9,7 +9,6 @@ let messageEl = document.getElementById("message-el");
 let sumEl = document.querySelector("#sum-el");
 let cardsEl = document.getElementById("cards-el");
 
-console.log(17);
 let player = {
     name:"Dima",
     chips: 150,
