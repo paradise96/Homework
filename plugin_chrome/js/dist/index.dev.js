@@ -3,20 +3,18 @@
 var myLeads = [];
 var inputEl = document.getElementById("input-el");
 var ulEl = document.getElementById("ul-el");
+var deleteBtn = document.getElementById("delete-btn");
 var leadsfromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
+deleteBtn.addEventListener('dblclick', function (event) {
+  localStorage.clear();
+  myLeads = [];
+  renderLeads();
+});
 
 if (leadsfromLocalStorage) {
   myLeads = leadsfromLocalStorage;
   renderLeads();
 }
-
-var clickedBtn = document.getElementById("input-btn");
-clickedBtn.addEventListener("click", function () {
-  myLeads.push(inputEl.value);
-  inputEl.value = "";
-  localStorage.setItem("myLeads", JSON.stringify(myLeads));
-  console.log(renderLeads());
-});
 
 function renderLeads() {
   var listItems = "";
@@ -29,3 +27,11 @@ function renderLeads() {
 
   ulEl.innerHTML = listItems;
 }
+
+var clickedBtn = document.getElementById("input-btn");
+clickedBtn.addEventListener("click", function () {
+  myLeads.push(inputEl.value);
+  inputEl.value = "";
+  localStorage.setItem("myLeads", JSON.stringify(myLeads));
+  console.log(renderLeads());
+});
