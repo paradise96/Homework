@@ -196,7 +196,7 @@ function nameDays() {
       return;
     }
     while (test !== null) {
-      if (i >= 6) {
+      if (i >= 7) {
         i = 0;
       }
       test = prompt("next day is " + days[i]);

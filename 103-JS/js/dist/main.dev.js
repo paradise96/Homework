@@ -218,7 +218,7 @@ function nameDays() {
   }
 
   while (test !== null) {
-    if (i >= 6) {
+    if (i >= 7) {
       i = 0;
     }
 
