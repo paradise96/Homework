@@ -208,22 +208,19 @@ function nameDays() {
   //         prompt(`Today is ${arr[i]}. Want to see a new day?`);
   //     }
   // }
-  var result = prompt("Hello!");
+  // let result = prompt("Hello!");
   var i = 0;
   var test;
-  var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]; // if (result !== "") {
+  //   return;
+  // }
 
-  if (result !== "") {
-    return;
-  }
-
-  while (test !== null) {
+  while (test !== false) {
     if (i >= 7) {
       i = 0;
     }
 
-    test = prompt("next day is " + days[i]);
-    i++;
-    console.log(test);
+    test = confirm("next day is " + days[i]);
+    i++; //   console.log(test);
   }
 }

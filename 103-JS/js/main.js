@@ -179,7 +179,7 @@ function nameDays() {
     //         prompt(`Today is ${arr[i]}. Want to see a new day?`);
     //     }
     // }
-    let result = prompt("Hello!");
+    // let result = prompt("Hello!");
     let i = 0;
     let test;
     const days = [
@@ -192,16 +192,16 @@ function nameDays() {
       "Sunday"
     ];
   
-    if (result !== "") {
-      return;
-    }
-    while (test !== null) {
+    // if (result !== "") {
+    //   return;
+    // }
+    while (test !== false) {
       if (i >= 7) {
         i = 0;
       }
-      test = prompt("next day is " + days[i]);
+      test = confirm("next day is " + days[i]);
       i++;
-      console.log(test);
+    //   console.log(test);
     }
   }
  
