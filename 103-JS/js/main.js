@@ -73,6 +73,19 @@ function sumWithinRange() {
     }
     alert(`The range of this two numbers equals ${sum}`);  
 }
+// function secondOption() {
+//     const from = parseInt(prompt("Enter first number"));
+//     const to = parseInt(prompt("Enter a second number"));
+//     let sum = 0;
+//     if(from !==to) {
+//         const forFrom = from < to ? from : to;
+//         const forTo = to > from ? to : from;
+//         for(let i = forFrom; i <= forTo; i ++){
+//             sum+=i;
+//         }
+//     }
+//     alert(`total sum is ${sum}`);
+// } 
 //FOURTH TASK
 
 function greatestDivisor() {
@@ -88,7 +101,6 @@ function greatestDivisor() {
           }
           alert(`The greatest divisor equals ${num1}`);
     }
-       
   }
 
   //5 Task

@@ -3,18 +3,30 @@
   font-weight: 400;
   src: url(../fonts/Aleo-Regular.woff2) format("woff2");
 }
+/* josefin-sans-300 - latin */
 @font-face {
-  font-family: "Josefin Light";
+  font-family: "Josefin Sans";
+  font-style: normal;
   font-weight: 300;
-  src: url(../fonts/JosefinSans-Light.woff2) format("woff2");
+  src: url("../fonts/josefin-sans-v25-latin-300.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/josefin-sans-v25-latin-300.eot?#iefix") format("embedded-opentype"), url("../fonts/josefin-sans-v25-latin-300.woff2") format("woff2"), url("../fonts/josefin-sans-v25-latin-300.woff") format("woff"), url("../fonts/josefin-sans-v25-latin-300.ttf") format("truetype");
 }
+/* josefin-sans-regular - latin */
 @font-face {
-  font-family: "Josefin Regular";
+  font-family: "Josefin Sans";
+  font-style: normal;
   font-weight: 400;
-  src: url(../fonts/JosefinSans-Regular.woff2) format("woff2");
+  src: url("../fonts/josefin-sans-v25-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/josefin-sans-v25-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/josefin-sans-v25-latin-regular.woff2") format("woff2"), url("../fonts/josefin-sans-v25-latin-regular.woff") format("woff"), url("../fonts/josefin-sans-v25-latin-regular.ttf") format("truetype");
 }
+/* josefin-sans-700 - latin */
 @font-face {
-  font-family: "Josefin Bold";
+  font-family: "Josefin Sans";
+  font-style: normal;
   font-weight: 700;
-  src: url(../fonts/JosefinSans-Bold.woff2) format("woff2");
+  src: url("../fonts/josefin-sans-v25-latin-700.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/josefin-sans-v25-latin-700.eot?#iefix") format("embedded-opentype"), url("../fonts/josefin-sans-v25-latin-700.woff2") format("woff2"), url("../fonts/josefin-sans-v25-latin-700.woff") format("woff"), url("../fonts/josefin-sans-v25-latin-700.ttf") format("truetype");
 }
