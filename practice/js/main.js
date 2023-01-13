@@ -4,6 +4,24 @@ const CART = [
         qty: 3,
         price: 12.50,
         isBuy: false,
+    },
+    {
+        title: 'Milk',
+        qty: 2,
+        price: 32.20,
+        isBuy: true,
+    },
+    {
+        title: 'Beer',
+        qty: 10,
+        price: 34.50,
+        isBuy: true,
+    },
+    {
+        title: 'Potato',
+        qty: 4,
+        price: 8,
+        isBuy: false,
     }
 ];
 
@@ -48,36 +66,61 @@ function addToCart() {
 }
 function viewProducts () {
     let list = '';
-    CART.forEach((prod, index) => {
-        const status = prod.isBuy ? '<span class="badge rounded-pill text-bg-success">yes</span>'
-        : '<span class="badge rounded-pill text-bg-danger">no</span>';
+    let index = 0;
+    // for(let i = 0; i<CART.length; i++){
+    //     if(!CART[i].isBuy) {
+    //         const prod = CART[i];
+    //         list += productItem(prod, i);
+    //     }
+    // }
+        // for(let i = 0; i<CART.length; i++){
+    //     if(CART[i].isBuy) {
+    //         const prod = CART[i];
+    //         list += productItem(prod, i);
+    //     }
+    // }
+    CART.filter(el => !el.isBuy).forEach((prod) => {
+        list += productItem(prod, index);
+        index++;
+    });
+    CART.filter(el => el.isBuy).forEach((prod) => {
+        list += productItem(prod, index);
+        index++;
+    });
 
-        list +=`
+    document.getElementById('productTbody').innerHTML = list;
+    calcTotal();
+}
+
+function productItem(prod, index) {
+    let list =`
         <tr>
         <td>${index + 1}</td>
         <td>${prod.title}</td>
-        <td>${status}</td>
+        <td>${prod.isBuy ? '<span class="badge rounded-pill text-bg-success">yes</span>' 
+        : '<span class="badge rounded-pill text-bg-danger">no</span>'}</td>
         <td>${prod.qty}</td>
         <td>${prod.price.toFixed(2)}</td>
         <td>${(prod.qty * prod.price).toFixed(2)}</td>
         <td>`;
         if(!prod.isBuy) {
             list += `
-            <button type="button" class="btn btn-info btn-sm" onclick="buyProduct(${index})">Buy</button>
-            <button type="button" class="btn btn-danger btn-sm" onclick="removeProduct(${index})">Remove</button>`;
+            <button type="button" class="btn btn-info btn-sm" onclick="buyProduct('${prod.title}')">Buy</button>
+            <button type="button" class="btn btn-danger btn-sm" onclick="removeProduct('${prod.title}')">Remove</button>`;
         }
         list +=`</td>
     </tr>`;
-    });
-    document.getElementById('productTbody').innerHTML = list;
-    calcTotal();
+    return list;
 }
-function buyProduct(index) {
-    CART[index].isBuy = true;
+
+function buyProduct(title) {
+    // const index = CART.findIndex( el => el.title === title);
+    CART[CART.findIndex( el => el.title === title)].isBuy = true;
     viewProducts();
 }
-function removeProduct(index) {
-    CART.splice(index, 1);
+function removeProduct(title) {
+    // const index = CART.findIndex( el => el.title === title);
+    CART.splice( CART.findIndex( el => el.title === title), 1);
     viewProducts();
 }
 function calcTotal() {
@@ -88,6 +131,6 @@ function calcTotal() {
     const total = CART.reduce((acc, el)=> {
         return acc + el.qty * el.price;
     }, 0);
-    document.getElementById('cardTotal').innerHTML = list;
+    document.getElementById('cardTotal').innerHTML = total.toFixed(2);
 }
 viewProducts();

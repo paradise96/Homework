@@ -1,0 +1,6 @@
+User-agent: *
+
+Disallow: /backup/
+Disallow: /vendor/
+Sitemap: https://bhromaon.com/sitemaps/sitemap.xml
+Host: bhromaon.com
