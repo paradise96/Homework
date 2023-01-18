@@ -21,6 +21,24 @@ var CART = [{
   price: 8,
   isBuy: false
 }];
+var discount = {
+  WINTER20: {
+    value: 20,
+    type: 'percent'
+  },
+  WINTER30: {
+    value: 30,
+    type: 'percent'
+  },
+  WINTER40: {
+    value: 40,
+    type: 'percent'
+  },
+  NEWYEAR200: {
+    value: 200,
+    type: 'fixed'
+  }
+};
 
 function addToCart() {
   var title = document.getElementById('prodTitle').value.trim();
@@ -60,8 +78,9 @@ function addToCart() {
       });
     }
 
-    viewProducts();
-    alert('Product successfully added');
+    viewProducts(); // alert('Product successfully added');
+
+    toast.success('Product successfully added');
     document.getElementById('prodTitle').value = '';
     document.getElementById('prodQty').value = '1';
     document.getElementById('prodPrice').value = '';
@@ -96,7 +115,7 @@ function viewProducts() {
     index++;
   });
   document.getElementById('productTbody').innerHTML = list;
-  calcTotal();
+  viewTotal();
 }
 
 function productItem(prod, index) {
@@ -131,10 +150,72 @@ function calcTotal() {
   // for (let i = 0; i < CART.length; i++){
   //     total += CART[i].qty * CART[i].price; 
   // }
-  var total = CART.reduce(function (acc, el) {
-    return acc + el.qty * el.price;
-  }, 0);
-  document.getElementById('cardTotal').innerHTML = total.toFixed(2);
+  var total = {
+    buy: 0,
+    notBuy: 0,
+    all: 0
+  };
+  CART.forEach(function (prod) {
+    var cost = prod.qty * prod.price;
+
+    if (prod.isBuy) {
+      total.buy += cost;
+    } else {
+      total.notBuy += cost;
+    }
+  });
+  total.all = total.buy + total.notBuy;
+  return total; // const totalBuy = CART.filter(el => el.isBuy).reduce((acc, el)=> {
+  //     return acc + el.qty * el.price;
+  // }, 0);
+  // const totalNotBuy = CART.filter(el => !el.isBuy).reduce((acc, el)=> {
+  //     return acc + el.qty * el.price;
+  // }, 0);
+  // const total = CART.reduce((acc, el)=> {
+  //     return acc + el.qty * el.price;
+  // }, 0);
+}
+
+function viewTotal() {
+  var total = calcTotal();
+  document.getElementById('cardTotal').innerHTML = total.all.toFixed(2);
+  document.getElementById('cartTotalBnB').innerHTML = "<big>".concat(total.buy.toFixed(2), "</big>, \n    <small>").concat(total.notBuy.toFixed(2), "</small>");
+  document.getElementById('showSum').innerHTML = total.buy.toFixed(2);
+
+  if (document.getElementById('discount').value.trim() !== '') {
+    calcDiscount();
+  }
 }
 
 viewProducts();
+
+function calcDiscount() {
+  var code = document.getElementById('discount').value.trim();
+  var discountValue = '';
+  var total = calcTotal();
+  var finalSum = total.buy;
+
+  if (code !== '') {
+    if (discount[code]) {
+      if (discount[code].type === 'percent') {
+        discountValue = "".concat(discount[code].value, "%");
+        finalSum = total.buy - total.buy * discount[code].value / 100;
+      } else {
+        discountValue = "".concat(discount[code].value, "\u20B4");
+        finalSum = total.buy - discount[code].value;
+      }
+
+      document.getElementById('valueDiscount').innerHTML = discountValue;
+      document.getElementById('finalSum').innerHTML = finalSum.toFixed(2);
+    } else {
+      toast.danger('There is no such code!');
+    }
+  } else {
+    toast.warning('Enter discount code!!!');
+  }
+}
+
+var discountBtn = document.getElementById('discount-btn');
+discountBtn.addEventListener('click', function () {
+  calcDiscount();
+});

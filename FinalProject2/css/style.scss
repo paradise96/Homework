@@ -37,3 +37,10 @@ img{
     object-fit: cover;
     vertical-align: top;
 }
+#header {
+  height: 80px;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.244636) 24.1%, rgba(255, 255, 255, 0) 47.19%), rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(4.5px);
+  background-color: #000;
+  // transform: matrix(1, 0, 0, -1, 0, 0);
+}

@@ -6,62 +6,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        #my-toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 350px;
+            padding: 15px;
+            background-color: rgba(3, 205, 3, 0.8);
+            color: #fff;
+            z-index: 10000 ;
+        }
+    </style>
 </head>
 <body>
+    <!-- <div id="my-toast">
+        <div>Product added successfully!</div>
+    </div> -->
     <div class="container pt-5">
-        <div class="card mb-4">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        <label for="prodTitle">Product title</label>
-                        <input type="text" class="form-control" id="prodTitle">
+        <div class="row">
+            <div class="col-8"><div class="card mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="prodTitle">Product title</label>
+                            <input type="text" class="form-control" id="prodTitle">
+                        </div>
+                        <div class="col-2">
+                            <label for="prodQty">Quantity</label>
+                            <input type="number" class="form-control"  min="1" value="1" id="prodQty">
+                        </div>
+                        <div class="col-2">
+                            <label for="prodPrice">Price</label>
+                            <input type="number" class="form-control" id="prodPrice">
+                        </div>
+                        <div class="col-2 d-flex align-items-end">
+                            <button type="button" class="btn btn-success" onclick="addToCart()">Add</button>
+                        </div>
                     </div>
-                    <div class="col-2">
-                        <label for="prodQty">Quantity</label>
-                        <input type="number" class="form-control"  min="1" value="1" id="prodQty">
+                </div>         
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h4>Products in cart</h4>
+                </div>
+                <div class="card-body">
+                   <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Product title</th>
+                            <th>Bought</th>
+                            <th>Qty</th>
+                            <th>Price per one</th>
+                            <th>Cost</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productTbody">
+                        
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="5">TOTAL</th>
+                            <th id="cardTotal"></th>
+                            <th id="cartTotalBnB">                          
+                            </th>
+                        </tr>
+                    </tfoot>
+                   </table>
+                </div>
+            </div></div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Print</h4>
                     </div>
-                    <div class="col-2">
-                        <label for="prodPrice">Price</label>
-                        <input type="number" class="form-control" id="prodPrice">
-                    </div>
-                    <div class="col-2 d-flex align-items-end">
-                        <button type="button" class="btn btn-success" onclick="addToCart()">Add</button>
+                    <div class="card-body">
+                        <div class="row mb-5">
+                            <div class="col-8">
+                                <input type="text" id="discount" class="form-control"
+                                placeholder="Enter discount code">
+                            </div>
+                            <div class="col-4">
+                                <button type="button" id="discount-btn" class="btn btn-info">Apply</button>
+                            </div>
+                        </div>
+                        <hr>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Cost</td>
+                                    <td id="showSum"></td>
+                                </tr>
+                                <tr>
+                                    <td>Discount</td>
+                                    <td id="valueDiscount"></td>
+                                </tr>
+                                <tr>
+                                    <td>Final Total</td>
+                                    <td id="finalSum"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </div>         
-        </div>
-
-        <div class="card mb-4">
-            <div class="card-header">
-                <h4>Products in cart</h4>
-            </div>
-            <div class="card-body">
-               <table class="table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Product title</th>
-                        <th>Bought</th>
-                        <th>Qty</th>
-                        <th>Price per one</th>
-                        <th>Cost</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="productTbody">
-                    
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th colspan="5">TOTAL</th>
-                        <th id="cardTotal"></th>
-                        <th></th>
-                    </tr>
-                </tfoot>
-               </table>
             </div>
         </div>
+        
     </div>
+    <script src="./js/toast.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

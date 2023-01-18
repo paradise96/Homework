@@ -23,10 +23,6 @@
  * hours =  distance / average speed;
  * hours = 5.
  */
-var btnShow = document.getElementById('btn-show');
-var addDriverName = document.getElementById('addDriverName');
-var checkName = document.getElementById('checkName');
-var showJourney = document.getElementById('showJourney');
 var carObject = {
   manufacturer: 'Volkswagen',
   model: 'Arteon',
@@ -58,9 +54,11 @@ var carObject = {
   },
   journeyTrip: function journeyTrip(distance) {
     var hoursToDrive = distance / this.averageSpeed; // 600 / 110 = 5.45 ; 0.45 *60 =  5 : 27; 880 / 110 = 8;
+    // console.log(hoursToDrive);
 
-    var countPauses = Math.trunc(hoursToDrive / 4);
-    var totalTime = hoursToDrive + countPauses; //6.45; second option 10 
+    var countPauses = Math.trunc(hoursToDrive / 4); // console.log(countPauses);
+
+    var totalTime = hoursToDrive + countPauses; // console.log(totalTime); //6.45; second option 10 
 
     if (totalTime % 1 === 0 && totalTime % 4 === 0) {
       totalTime -= 1;
@@ -72,16 +70,27 @@ var carObject = {
 
     if (minutes < 10) {
       minutes = '0' + minutes;
-    }
+    } // console.log(minutes);
+
+
+    var showDistanceAndTime = document.getElementById('showDistanceAndTime');
+    showDistanceAndTime.innerHTML = "The average time to cover this ".concat(distance, " km equals ").concat(hour, " : ").concat(minutes);
   }
 };
+var btnShow = document.getElementById('btn-show');
+var addDriverName = document.getElementById('addDriverName');
+var checkName = document.getElementById('checkName');
+var showJourney = document.getElementById('showJourney');
 btnShow.addEventListener('click', function () {
   var outputShow = document.getElementById('autoInfo');
   outputShow.innerHTML = carObject.generalCarInfo();
 });
 addDriverName.addEventListener('click', function () {
-  var driverName = document.getElementById('driverName');
+  var driverName = document.getElementById('driverName'); // console.log(carObject.drivers);
+
   carObject.addDriverToList(driverName.value);
+  var outputShow = document.getElementById('autoInfo');
+  outputShow.innerHTML = carObject.generalCarInfo();
   driverName.value = '';
 });
 checkName.addEventListener('click', function () {
@@ -93,7 +102,7 @@ showJourney.addEventListener('click', function () {
   var distance = document.getElementById('distance');
   carObject.journeyTrip(distance.value);
   distance.value = '';
-});
-showJourney.addEventListener('click', function () {
-  var showDistanceAndTime = document.getElementById('showDistanceAndTime');
-});
+}); // showJourney.addEventListener('click', function() {
+//     const distance = document.getElementById('distance');
+//     carObject.journeyTrip(distance.value);
+// });

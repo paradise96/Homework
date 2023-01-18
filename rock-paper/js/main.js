@@ -4,6 +4,7 @@ const resultDisplay = document.getElementById('result');
 const possibleChoices = document.querySelectorAll('button');
 let userChoose;
 let computerChoice;
+let result;
 
 
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', function(e){
@@ -15,7 +16,6 @@ possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click
 
 function generateComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1;
-    console.log(randomNumber);
     if(randomNumber === 1) {
         computerChoice = 'rock';
     }
@@ -29,18 +29,17 @@ function generateComputerChoice() {
 }
 
 function getResult() {
-    let result;
     if(computerChoice === userChoose) {
         result = "It's a draw";
-    }
-    if(computerChoice === 'rock' && userChoose === 'paper') {
-        result = 'you win!';
     }
     if(computerChoice === 'rock' && userChoose === 'scissors') {
         result = 'you lose!';
     }
+    if(computerChoice === 'rock' && userChoose === 'paper') {
+        result = 'you win!';
+    }
     if(computerChoice === 'scissor' && userChoose === 'paper') {
-        result = 'you lose!';
+        result = 'you lose!!';
     }
     if(computerChoice === 'scissors' && userChoose === 'rock') {
         result = 'you win!';
@@ -167,3 +166,48 @@ function flipCard () {
 }
 createBoard();
 
+//Whack-a-mole !!!
+const squares = document.querySelectorAll('.square');
+const mole = document.querySelector('.mole');
+const timeLeft = document.querySelector('#time-left');
+const score = document.querySelector('#score');
+let resultW = 0;
+let hitPosition;
+let currentTime = 60;
+let timerId = null;
+function randomSquare() {
+    squares.forEach(square => {
+        square.classList.remove('mole');
+    });
+
+    let randomSquare = squares[Math.floor(Math.random()* 9)];
+    randomSquare.classList.add('mole');
+    // console.log(randomPosition);
+    hitPosition = randomSquare.id;
+}
+
+squares.forEach(square => {
+    square.addEventListener('mousedown', () =>{
+        if(square.id === hitPosition){
+            resultW++;
+            score.textContent = resultW;
+            hitPosition = null;
+        }
+    });
+});
+function moveMole(){
+   
+    timerId = setInterval(randomSquare, 1500);
+}
+// randomSquare();
+moveMole();
+function countDown() {
+    currentTime--;
+    timeLeft.textContent = currentTime;
+    if(currentTime === 0){
+        clearInterval(timerId);
+        clearInterval(countDownTimeId);
+        alert('game is over! Your score is' + resultW);
+    }
+}
+let countDownTimeId = setInterval(countDown, 1000);

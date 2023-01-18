@@ -6,6 +6,7 @@ var resultDisplay = document.getElementById('result');
 var possibleChoices = document.querySelectorAll('button');
 var userChoose;
 var computerChoice;
+var result;
 possibleChoices.forEach(function (possibleChoice) {
   return possibleChoice.addEventListener('click', function (e) {
     userChoose = e.target.id;
@@ -17,7 +18,6 @@ possibleChoices.forEach(function (possibleChoice) {
 
 function generateComputerChoice() {
   var randomNumber = Math.floor(Math.random() * 3) + 1;
-  console.log(randomNumber);
 
   if (randomNumber === 1) {
     computerChoice = 'rock';
@@ -35,22 +35,20 @@ function generateComputerChoice() {
 }
 
 function getResult() {
-  var result;
-
   if (computerChoice === userChoose) {
     result = "It's a draw";
-  }
-
-  if (computerChoice === 'rock' && userChoose === 'paper') {
-    result = 'you win!';
   }
 
   if (computerChoice === 'rock' && userChoose === 'scissors') {
     result = 'you lose!';
   }
 
+  if (computerChoice === 'rock' && userChoose === 'paper') {
+    result = 'you win!';
+  }
+
   if (computerChoice === 'scissor' && userChoose === 'paper') {
-    result = 'you lose!';
+    result = 'you lose!!';
   }
 
   if (computerChoice === 'scissors' && userChoose === 'rock') {
@@ -168,4 +166,53 @@ function flipCard() {
   }
 }
 
-createBoard();
+createBoard(); //Whack-a-mole !!!
+
+var squares = document.querySelectorAll('.square');
+var mole = document.querySelector('.mole');
+var timeLeft = document.querySelector('#time-left');
+var score = document.querySelector('#score');
+var resultW = 0;
+var hitPosition;
+var currentTime = 60;
+var timerId = null;
+
+function randomSquare() {
+  squares.forEach(function (square) {
+    square.classList.remove('mole');
+  });
+  var randomSquare = squares[Math.floor(Math.random() * 9)];
+  randomSquare.classList.add('mole'); // console.log(randomPosition);
+
+  hitPosition = randomSquare.id;
+}
+
+squares.forEach(function (square) {
+  square.addEventListener('mousedown', function () {
+    if (square.id === hitPosition) {
+      resultW++;
+      score.textContent = resultW;
+      hitPosition = null;
+    }
+  });
+});
+
+function moveMole() {
+  timerId = setInterval(randomSquare, 1500);
+} // randomSquare();
+
+
+moveMole();
+
+function countDown() {
+  currentTime--;
+  timeLeft.textContent = currentTime;
+
+  if (currentTime === 0) {
+    clearInterval(timerId);
+    clearInterval(countDownTimeId);
+    alert('game is over! Your score is' + resultW);
+  }
+}
+
+var countDownTimeId = setInterval(countDown, 1000);

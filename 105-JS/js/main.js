@@ -22,10 +22,7 @@
  * hours =  distance / average speed;
  * hours = 5.
  */
-const btnShow = document.getElementById('btn-show');
-const addDriverName = document.getElementById('addDriverName');
-const checkName = document.getElementById('checkName');
-const showJourney = document.getElementById('showJourney');
+
 
 const carObject = {
     manufacturer: 'Volkswagen',
@@ -56,8 +53,11 @@ const carObject = {
     },
     journeyTrip: function(distance) {
         let hoursToDrive = distance / this.averageSpeed; // 600 / 110 = 5.45 ; 0.45 *60 =  5 : 27; 880 / 110 = 8;
+        // console.log(hoursToDrive);
         let countPauses = Math.trunc(hoursToDrive / 4); 
-        let totalTime = hoursToDrive + countPauses; //6.45; second option 10 
+        // console.log(countPauses);
+        let totalTime = hoursToDrive + countPauses;
+        // console.log(totalTime); //6.45; second option 10 
         if(totalTime % 1=== 0 && totalTime % 4 === 0) {
             totalTime -=1;
         }
@@ -66,8 +66,15 @@ const carObject = {
         if (minutes < 10) {
             minutes = '0' + minutes;
         }
+        // console.log(minutes);
+        const showDistanceAndTime = document.getElementById('showDistanceAndTime');
+        showDistanceAndTime.innerHTML = `The average time to cover this ${distance} km equals ${hour} : ${minutes}`;
     }
 };
+const btnShow = document.getElementById('btn-show');
+const addDriverName = document.getElementById('addDriverName');
+const checkName = document.getElementById('checkName');
+const showJourney = document.getElementById('showJourney');
 
 
 btnShow.addEventListener('click', function() {
@@ -77,7 +84,10 @@ btnShow.addEventListener('click', function() {
 
 addDriverName.addEventListener('click', function() {
     const driverName = document.getElementById('driverName');
+    // console.log(carObject.drivers);
     carObject.addDriverToList(driverName.value);
+    const outputShow = document.getElementById('autoInfo');
+    outputShow.innerHTML = carObject.generalCarInfo();
     driverName.value = '';
 });
 
@@ -93,8 +103,8 @@ showJourney.addEventListener('click', function() {
     distance.value = '';
 });
 
-showJourney.addEventListener('click', function() {
-    const showDistanceAndTime = document.getElementById('showDistanceAndTime');
-
-});
+// showJourney.addEventListener('click', function() {
+//     const distance = document.getElementById('distance');
+//     carObject.journeyTrip(distance.value);
+// });
 
