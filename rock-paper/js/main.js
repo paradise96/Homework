@@ -29,27 +29,24 @@ function generateComputerChoice() {
 }
 
 function getResult() {
-    if(computerChoice === userChoose) {
-        result = "It's a draw";
+    if(computerChoice === userChoose) {//
+        resultDisplay.innerHTML = "It's a draw";
+        return;
     }
-    if(computerChoice === 'rock' && userChoose === 'scissors') {
+    if((computerChoice === 'rock' && userChoose === 'scissors') || (computerChoice === 'scissors' && userChoose === 'paper') || (computerChoice === 'paper' && userChoose === 'rock')) {//
         result = 'you lose!';
-    }
-    if(computerChoice === 'rock' && userChoose === 'paper') {
+    } else {
         result = 'you win!';
     }
-    if(computerChoice === 'scissor' && userChoose === 'paper') {
-        result = 'you lose!!';
-    }
-    if(computerChoice === 'scissors' && userChoose === 'rock') {
-        result = 'you win!';
-    }
-    if(computerChoice === 'paper' && userChoose === 'rock') {
-        result = 'you lose!';
-    }
-    if(computerChoice === 'paper' && userChoose === 'scissors') {
-        result = 'you win!';
-    }
+    // if(computerChoice === 'rock' && userChoose === 'paper') {//
+    //     result = 'you win!';
+    // }
+    // if(computerChoice === 'scissors' && userChoose === 'rock') {//
+    //     result = 'you win!';
+    // }
+    // if(computerChoice === 'paper' && userChoose === 'scissors') {
+    //     result = 'you win!';
+    // }
     resultDisplay.innerHTML = result;
 }
 //////
@@ -156,7 +153,6 @@ function checkMatch() {
 
 function flipCard () {
     const cardId = this.getAttribute('data-id');
-   
     cardChosen.push(cardArray[cardId].name);
     cardsChosenIds.push(cardId);
     this.setAttribute('src', cardArray[cardId].img);
@@ -175,15 +171,30 @@ let resultW = 0;
 let hitPosition;
 let currentTime = 60;
 let timerId = null;
+let countDownTimeId;
 function randomSquare() {
     squares.forEach(square => {
         square.classList.remove('mole');
     });
-
-    let randomSquare = squares[Math.floor(Math.random()* 9)];
-    randomSquare.classList.add('mole');
-    // console.log(randomPosition);
-    hitPosition = randomSquare.id;
+    let timing = 2000;
+    if(currentTime < 40) {
+        timing = 1500;
+    }
+    if(currentTime < 20) {
+        timing = 1000;
+    }
+    let randomSquare1 = squares[Math.floor(Math.random()* 9)];
+    randomSquare1.classList.add('mole');
+    hitPosition = randomSquare1.id;
+    let timeCount;
+    if(currentTime > 0){
+        timeCount = setTimeout(function(){randomSquare();}, timing);
+    } else {
+        clearTimeout(timeCount);
+        clearInterval(countDownTimeId);
+        // !!!!!!!!!!!!!! CHANGE IT FOR TOAST AND MAKE IT ON CLICK OF THE BUTTON!
+        // alert('game is over! Your score is ' + resultW);
+    }
 }
 
 squares.forEach(square => {
@@ -196,18 +207,185 @@ squares.forEach(square => {
     });
 });
 function moveMole(){
-   
-    timerId = setInterval(randomSquare, 1500);
+    countDownTimeId = setInterval(renderTime, 1000);
+    randomSquare();
 }
-// randomSquare();
 moveMole();
-function countDown() {
+function renderTime(){
     currentTime--;
     timeLeft.textContent = currentTime;
-    if(currentTime === 0){
-        clearInterval(timerId);
-        clearInterval(countDownTimeId);
-        alert('game is over! Your score is' + resultW);
+}
+// function countDown() {
+//     if(currentTime < 40){
+//         clearInterval(timerId);
+//         timerId = setInterval(randomSquare, 1500);
+//     }
+//     if(currentTime < 20) {
+//         clearInterval(timerId);
+//         timerId = setInterval(randomSquare, 1000);
+//     }
+//     if(currentTime === 0){
+//         clearInterval(timerId);
+//         // clearInterval(countDownTimeId);
+//         // alert('game is over! Your score is ' + resultW);
+//     }
+// }
+const gridBreakout = document.querySelector('.gridBreakout');
+const scoreR = document.querySelector('#scoreR');
+const blockWidth = 100;
+const blockHeight = 20;
+const boardWidth = 560;
+const boardHeight = 300;
+const ballDiameter = 20;
+const userStart = [230 ,10];
+
+let currentPosition = userStart;
+const ballStart = [270, 40];
+let ballCurrentPosition = ballStart; 
+let timerId1;
+let xDirection = 2;
+let yDirection =2;
+let scoreBreakout = 0;
+//create a Block
+class Block {
+    constructor (xAxis, yAxis) {
+        this.bottomLeft = [xAxis, yAxis];
+        this.bottomRight = [xAxis + blockWidth, yAxis];
+        this.topLeft = [xAxis, yAxis + blockHeight];
+        this.topRight = [xAxis + blockWidth, yAxis + blockHeight];
     }
 }
-let countDownTimeId = setInterval(countDown, 1000);
+//all my blocks
+const blocks = [
+    new Block(10, 270),
+    new Block(120, 270),
+    new Block(230, 270),
+    new Block(340, 270),
+    new Block(450, 270),
+    new Block(10, 240),
+    new Block(120, 240),
+    new Block(230, 240),
+    new Block(340, 240),
+    new Block(450, 240),
+    new Block(10, 210),
+    new Block(120, 210),
+    new Block(230, 210),
+    new Block(340, 210),
+    new Block(450, 210),
+   
+];
+//draw a block
+function addBlock (){
+    
+    for (let i = 0; i < blocks.length; i++) {
+    const block = document.createElement('div');
+    block.classList.add('block');
+    block.style.left = blocks[i].bottomLeft[0] + 'px';
+    block.style.bottom = blocks[i].bottomLeft[1] + 'px';
+    gridBreakout.appendChild(block);
+    }
+}
+addBlock();
+
+//add user 
+const user = document.createElement('div');
+user.classList.add('user');
+drawUser();
+gridBreakout.appendChild(user);
+//drawUser 
+function drawUser() {
+    user.style.left = currentPosition[0] + 'px';
+    user.style.bottom = currentPosition[1] + 'px';
+}
+//draw the ball
+function drawBall(){
+    ball.style.left = ballCurrentPosition[0] + 'px';
+    ball.style.bottom = ballCurrentPosition[1] + 'px';
+}
+
+//move user 
+function moveUser(e) {
+ switch(e.key){
+    case 'ArrowLeft': 
+        if(currentPosition[0] > 0){
+            currentPosition[0] -= 10;
+            drawUser();
+        }
+        break;
+    case 'ArrowRight': 
+        if(currentPosition[0] < 460){
+            currentPosition[0] += 10;
+            drawUser();
+        }
+        break;
+ }
+}
+document.addEventListener('keydown', moveUser);
+
+//add ball
+const ball = document.createElement('div');
+ball.classList.add('ball');
+drawBall();
+gridBreakout.appendChild(ball);
+
+//move the ball
+function moveBall() {
+    ballCurrentPosition[0] +=xDirection;
+    ballCurrentPosition[1] +=yDirection;
+    drawBall();
+    checkCollisions();
+}
+timerId1 = setInterval(moveBall, 30);
+
+//check for collisions
+function checkCollisions() {
+    //check for block collisions
+    for (let i = 0; i< blocks.length; i++) {
+      
+      if(
+        (ballCurrentPosition[0] > blocks[i].bottomLeft[0] && ballCurrentPosition[0] < blocks[i].bottomRight[0]) &&
+        ((ballCurrentPosition[1] + ballDiameter) > blocks[i].bottomLeft[1] && ballCurrentPosition[1] < blocks[i].topLeft[1]) 
+      ){
+        const allBlocks = Array.from(document.querySelectorAll('.block'));
+        allBlocks[i].classList.remove('block');
+        blocks.splice(i, 1);
+        changeDirection();
+        scoreBreakout++;
+        scoreR.innerHTML = scoreBreakout;
+      }
+       
+    }
+    //check for wall collisions
+    if(
+        ballCurrentPosition[0] >= (boardWidth - ballDiameter) || 
+        ballCurrentPosition[1] >= (boardHeight -ballDiameter) || 
+        ballCurrentPosition[0] <= 0
+        ){
+        changeDirection();
+    }
+
+    //change for game over
+    if(ballCurrentPosition[1] <= 0){
+        clearInterval(timerId1);
+        scoreR.innerText = 'You lose';
+        document.removeEventListener('keydown', moveUser);
+    }
+}
+function changeDirection(){
+     if(xDirection ===2 && yDirection ===2){
+         yDirection = -2;
+         return; 
+     }
+     if(xDirection == 2 && yDirection == -2){
+        xDirection = -2;
+        return;
+     }
+    if(xDirection == -2 && yDirection == -2){
+        yDirection = 2;
+        return;
+    }
+    if(xDirection === -2 && yDirection ===2){
+        xDirection = 2;
+        return;
+    }
+}

@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="./css/style.min.css">
 </head>
 <body>
+    <section class="breakout-game">
+        <div id="scoreR">0</div>
+        <div class="gridBreakout">
+            <!-- <div class="block"></div> -->
+        </div>
+    </section>
+
     <section class="rock">
         <h2>Computer Choice: <span id="computer-choice"></span></h2>
         <h2>User Choice: <span id="user-choice"></span></h2>
@@ -25,7 +32,7 @@
     </section>  
 
     <section class="whack">
-        <h2>Your score: </h2>
+        <h2 class="score">Your score of hittin putin: </h2>
         <h2 id="score">0</h2>
 
         <h2>Time Left: </h2>
@@ -42,6 +49,8 @@
             <div class="square" id="9"></div>
         </div>
     </section>
+
+   
     <script src="./js/main.js"></script>
 </body>
 </html>

@@ -1,5 +1,7 @@
 "use strict";
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 var computerChoiceDisplay = document.getElementById('computer-choice');
 var userChoiceDisplay = document.getElementById('user-choice');
 var resultDisplay = document.getElementById('result');
@@ -36,32 +38,26 @@ function generateComputerChoice() {
 
 function getResult() {
   if (computerChoice === userChoose) {
-    result = "It's a draw";
+    //
+    resultDisplay.innerHTML = "It's a draw";
+    return;
   }
 
-  if (computerChoice === 'rock' && userChoose === 'scissors') {
+  if (computerChoice === 'rock' && userChoose === 'scissors' || computerChoice === 'scissors' && userChoose === 'paper' || computerChoice === 'paper' && userChoose === 'rock') {
+    //
     result = 'you lose!';
-  }
-
-  if (computerChoice === 'rock' && userChoose === 'paper') {
+  } else {
     result = 'you win!';
-  }
+  } // if(computerChoice === 'rock' && userChoose === 'paper') {//
+  //     result = 'you win!';
+  // }
+  // if(computerChoice === 'scissors' && userChoose === 'rock') {//
+  //     result = 'you win!';
+  // }
+  // if(computerChoice === 'paper' && userChoose === 'scissors') {
+  //     result = 'you win!';
+  // }
 
-  if (computerChoice === 'scissor' && userChoose === 'paper') {
-    result = 'you lose!!';
-  }
-
-  if (computerChoice === 'scissors' && userChoose === 'rock') {
-    result = 'you win!';
-  }
-
-  if (computerChoice === 'paper' && userChoose === 'rock') {
-    result = 'you lose!';
-  }
-
-  if (computerChoice === 'paper' && userChoose === 'scissors') {
-    result = 'you win!';
-  }
 
   resultDisplay.innerHTML = result;
 } //////
@@ -176,15 +172,36 @@ var resultW = 0;
 var hitPosition;
 var currentTime = 60;
 var timerId = null;
+var countDownTimeId;
 
 function randomSquare() {
   squares.forEach(function (square) {
     square.classList.remove('mole');
   });
-  var randomSquare = squares[Math.floor(Math.random() * 9)];
-  randomSquare.classList.add('mole'); // console.log(randomPosition);
+  var timing = 2000;
 
-  hitPosition = randomSquare.id;
+  if (currentTime < 40) {
+    timing = 1500;
+  }
+
+  if (currentTime < 20) {
+    timing = 1000;
+  }
+
+  var randomSquare1 = squares[Math.floor(Math.random() * 9)];
+  randomSquare1.classList.add('mole');
+  hitPosition = randomSquare1.id;
+  var timeCount;
+
+  if (currentTime > 0) {
+    timeCount = setTimeout(function () {
+      randomSquare();
+    }, timing);
+  } else {
+    clearTimeout(timeCount);
+    clearInterval(countDownTimeId); // !!!!!!!!!!!!!! CHANGE IT FOR TOAST AND MAKE IT ON CLICK OF THE BUTTON!
+    // alert('game is over! Your score is ' + resultW);
+  }
 }
 
 squares.forEach(function (square) {
@@ -198,21 +215,169 @@ squares.forEach(function (square) {
 });
 
 function moveMole() {
-  timerId = setInterval(randomSquare, 1500);
-} // randomSquare();
-
+  countDownTimeId = setInterval(renderTime, 1000);
+  randomSquare();
+}
 
 moveMole();
 
-function countDown() {
+function renderTime() {
   currentTime--;
   timeLeft.textContent = currentTime;
+} // function countDown() {
+//     if(currentTime < 40){
+//         clearInterval(timerId);
+//         timerId = setInterval(randomSquare, 1500);
+//     }
+//     if(currentTime < 20) {
+//         clearInterval(timerId);
+//         timerId = setInterval(randomSquare, 1000);
+//     }
+//     if(currentTime === 0){
+//         clearInterval(timerId);
+//         // clearInterval(countDownTimeId);
+//         // alert('game is over! Your score is ' + resultW);
+//     }
+// }
 
-  if (currentTime === 0) {
-    clearInterval(timerId);
-    clearInterval(countDownTimeId);
-    alert('game is over! Your score is' + resultW);
+
+var gridBreakout = document.querySelector('.gridBreakout');
+var scoreR = document.querySelector('#scoreR');
+var blockWidth = 100;
+var blockHeight = 20;
+var boardWidth = 560;
+var boardHeight = 300;
+var ballDiameter = 20;
+var userStart = [230, 10];
+var currentPosition = userStart;
+var ballStart = [270, 40];
+var ballCurrentPosition = ballStart;
+var timerId1;
+var xDirection = 2;
+var yDirection = 2;
+var scoreBreakout = 0; //create a Block
+
+var Block = function Block(xAxis, yAxis) {
+  _classCallCheck(this, Block);
+
+  this.bottomLeft = [xAxis, yAxis];
+  this.bottomRight = [xAxis + blockWidth, yAxis];
+  this.topLeft = [xAxis, yAxis + blockHeight];
+  this.topRight = [xAxis + blockWidth, yAxis + blockHeight];
+}; //all my blocks
+
+
+var blocks = [new Block(10, 270), new Block(120, 270), new Block(230, 270), new Block(340, 270), new Block(450, 270), new Block(10, 240), new Block(120, 240), new Block(230, 240), new Block(340, 240), new Block(450, 240), new Block(10, 210), new Block(120, 210), new Block(230, 210), new Block(340, 210), new Block(450, 210)]; //draw a block
+
+function addBlock() {
+  for (var i = 0; i < blocks.length; i++) {
+    var block = document.createElement('div');
+    block.classList.add('block');
+    block.style.left = blocks[i].bottomLeft[0] + 'px';
+    block.style.bottom = blocks[i].bottomLeft[1] + 'px';
+    gridBreakout.appendChild(block);
   }
 }
 
-var countDownTimeId = setInterval(countDown, 1000);
+addBlock(); //add user 
+
+var user = document.createElement('div');
+user.classList.add('user');
+drawUser();
+gridBreakout.appendChild(user); //drawUser 
+
+function drawUser() {
+  user.style.left = currentPosition[0] + 'px';
+  user.style.bottom = currentPosition[1] + 'px';
+} //draw the ball
+
+
+function drawBall() {
+  ball.style.left = ballCurrentPosition[0] + 'px';
+  ball.style.bottom = ballCurrentPosition[1] + 'px';
+} //move user 
+
+
+function moveUser(e) {
+  switch (e.key) {
+    case 'ArrowLeft':
+      if (currentPosition[0] > 0) {
+        currentPosition[0] -= 10;
+        drawUser();
+      }
+
+      break;
+
+    case 'ArrowRight':
+      if (currentPosition[0] < 460) {
+        currentPosition[0] += 10;
+        drawUser();
+      }
+
+      break;
+  }
+}
+
+document.addEventListener('keydown', moveUser); //add ball
+
+var ball = document.createElement('div');
+ball.classList.add('ball');
+drawBall();
+gridBreakout.appendChild(ball); //move the ball
+
+function moveBall() {
+  ballCurrentPosition[0] += xDirection;
+  ballCurrentPosition[1] += yDirection;
+  drawBall();
+  checkCollisions();
+}
+
+timerId1 = setInterval(moveBall, 30); //check for collisions
+
+function checkCollisions() {
+  //check for block collisions
+  for (var i = 0; i < blocks.length; i++) {
+    if (ballCurrentPosition[0] > blocks[i].bottomLeft[0] && ballCurrentPosition[0] < blocks[i].bottomRight[0] && ballCurrentPosition[1] + ballDiameter > blocks[i].bottomLeft[1] && ballCurrentPosition[1] < blocks[i].topLeft[1]) {
+      var allBlocks = Array.from(document.querySelectorAll('.block'));
+      allBlocks[i].classList.remove('block');
+      blocks.splice(i, 1);
+      changeDirection();
+      scoreBreakout++;
+      scoreR.innerHTML = scoreBreakout;
+    }
+  } //check for wall collisions
+
+
+  if (ballCurrentPosition[0] >= boardWidth - ballDiameter || ballCurrentPosition[1] >= boardHeight - ballDiameter || ballCurrentPosition[0] <= 0) {
+    changeDirection();
+  } //change for game over
+
+
+  if (ballCurrentPosition[1] <= 0) {
+    clearInterval(timerId1);
+    scoreR.innerText = 'You lose';
+    document.removeEventListener('keydown', moveUser);
+  }
+}
+
+function changeDirection() {
+  if (xDirection === 2 && yDirection === 2) {
+    yDirection = -2;
+    return;
+  }
+
+  if (xDirection == 2 && yDirection == -2) {
+    xDirection = -2;
+    return;
+  }
+
+  if (xDirection == -2 && yDirection == -2) {
+    yDirection = 2;
+    return;
+  }
+
+  if (xDirection === -2 && yDirection === 2) {
+    xDirection = 2;
+    return;
+  }
+}
