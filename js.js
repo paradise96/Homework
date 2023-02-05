@@ -80,3 +80,33 @@ function addZero(n) {
     }
 }
 
+const promise = new Promise(function(resolve, reject){
+    setTimeout(() => {
+        console.log('Prepare data...');
+        const backEndData = {
+            server: 'aws',
+            port: 2000,
+            status: 'working',
+        };
+        resolve(backEndData);
+    }, 3000);
+});
+promise.then(data => {
+    // console.log('Promise resolved', data);
+    const p2 = new Promise((resolve, reject)=>{
+        setTimeout(() => {
+            data.modified = true;
+            resolve(data);
+            // console.log('data received', backEndData);
+
+        }, 3000);
+        
+    });
+    
+    p2.then(clientData => {
+        console.log('data received', clientData);
+    })
+    .catch(err => console.log('Error: ', err))
+    .finally(() => console.log('Finally'))
+});
+document.readyState('');

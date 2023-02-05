@@ -1,0 +1,30 @@
+{
+  "name": "myproject",
+  "version": "1.0.0",
+  "description": "my test project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paradise96/myproject.git"
+  },
+  "keywords": [
+    "test",
+    "node",
+    "npm"
+  ],
+  "author": "DmytroRai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paradise96/myproject/issues"
+  },
+  "homepage": "https://github.com/paradise96/myproject#readme",
+  "dependencies": {
+    "jquery": "^3.6.3"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}

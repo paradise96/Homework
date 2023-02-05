@@ -9,6 +9,16 @@ let result;
 
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', function(e){
    userChoose = e.target.id;
+//    if(userChoose === possibleChoice.rock){
+//         userChoiceDisplay.innerHTML = userChoose + '<img src="./images/rock.jpg" class="rockImage">';
+//    }
+//    if(userChoose === possibleChoice.scissors) {
+//     userChoiceDisplay.innerHTML = userChoose + '<img src="./images/scissors.svg" class="scissorsImage">';
+//    }
+//    if(userChoose === possibleChoice.paper){
+//     userChoiceDisplay.innerHTML = userChoose + '<img src="./images/paper.svg" class="scissorsImage">';
+//    }
+
    userChoiceDisplay.innerHTML = userChoose;
    generateComputerChoice();
    getResult();
@@ -21,22 +31,34 @@ function generateComputerChoice() {
     }
     if(randomNumber === 2) {
         computerChoice = 'scissors';
+        
     }
     if(randomNumber === 3) {
         computerChoice = 'paper';
     }
-   computerChoiceDisplay.innerHTML = computerChoice;
+    if(computerChoice === 'rock'){
+        computerChoiceDisplay.innerHTML = computerChoice + ' ' + '<img src="./images/rock.jpg" class="rockImage">';
+    }
+    if(computerChoice === 'scissors'){
+        computerChoiceDisplay.innerHTML = computerChoice + ' ' +  '<img src="./images/scissors.svg" class="scissorsImage">';
+    } 
+    if(computerChoice === 'paper') {
+        computerChoiceDisplay.innerHTML = computerChoice + ' ' +   '<img src="./images/paper.svg" class="paperImage">';
+    }
+//    computerChoiceDisplay.innerHTML = computerChoice;
 }
 
 function getResult() {
     if(computerChoice === userChoose) {//
-        resultDisplay.innerHTML = "It's a draw";
+        resultDisplay.innerHTML = "It's a draw" + '<img src="./images/handshake.svg" class="paperImage">';
         return;
     }
     if((computerChoice === 'rock' && userChoose === 'scissors') || (computerChoice === 'scissors' && userChoose === 'paper') || (computerChoice === 'paper' && userChoose === 'rock')) {//
         result = 'you lose!';
+        resultDisplay.innerHTML = result + '<img src="./images/loser.svg" class="paperImage">';
     } else {
         result = 'you win!';
+        resultDisplay.innerHTML = result + '<img src="./images/victory.svg" class="paperImage">';
     }
     // if(computerChoice === 'rock' && userChoose === 'paper') {//
     //     result = 'you win!';
@@ -47,7 +69,7 @@ function getResult() {
     // if(computerChoice === 'paper' && userChoose === 'scissors') {
     //     result = 'you win!';
     // }
-    resultDisplay.innerHTML = result;
+    
 }
 //////
 
@@ -167,6 +189,7 @@ const squares = document.querySelectorAll('.square');
 const mole = document.querySelector('.mole');
 const timeLeft = document.querySelector('#time-left');
 const score = document.querySelector('#score');
+const startButton = document.getElementById('start-the-game');
 let resultW = 0;
 let hitPosition;
 let currentTime = 60;
@@ -210,7 +233,9 @@ function moveMole(){
     countDownTimeId = setInterval(renderTime, 1000);
     randomSquare();
 }
-moveMole();
+startButton.addEventListener('click',moveMole, {"once": true});
+ 
+
 function renderTime(){
     currentTime--;
     timeLeft.textContent = currentTime;
@@ -352,6 +377,13 @@ function checkCollisions() {
         changeDirection();
         scoreBreakout++;
         scoreR.innerHTML = scoreBreakout;
+
+        //check for win
+        if(blocks.length === 0){
+            scoreR.innerHTML = 'YOU WIN!!!';
+            clearInterval(timerId1);
+            document.removeEventListener('keydown', moveUser);
+        }
       }
        
     }
@@ -363,7 +395,14 @@ function checkCollisions() {
         ){
         changeDirection();
     }
+    // check for gamer collision
+    if((ballCurrentPosition[0] > currentPosition[0] && ballCurrentPosition[0] < currentPosition[0] + blockWidth) && 
+    (ballCurrentPosition[1] > currentPosition[1] && ballCurrentPosition[1] < currentPosition[1] + blockHeight)){
+        changeDirection();
+    }
+    function checkGamerCollisions(){
 
+    }
     //change for game over
     if(ballCurrentPosition[1] <= 0){
         clearInterval(timerId1);

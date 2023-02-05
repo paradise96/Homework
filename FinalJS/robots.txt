@@ -1,0 +1,5 @@
+User-agent: *
+
+Disallow: /svg/
+Sitemap: https://monticello.com/sitemaps/sitemap.xml
+Host: monticello.com

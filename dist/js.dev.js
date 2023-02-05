@@ -84,3 +84,32 @@ function addZero(n) {
     return n;
   }
 }
+
+var promise = new Promise(function (resolve, reject) {
+  setTimeout(function () {
+    console.log('Prepare data...');
+    var backEndData = {
+      server: 'aws',
+      port: 2000,
+      status: 'working'
+    };
+    resolve(backEndData);
+  }, 3000);
+});
+promise.then(function (data) {
+  // console.log('Promise resolved', data);
+  var p2 = new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      data.modified = true;
+      resolve(data); // console.log('data received', backEndData);
+    }, 3000);
+  });
+  p2.then(function (clientData) {
+    console.log('data received', clientData);
+  })["catch"](function (err) {
+    return console.log('Error: ', err);
+  })["finally"](function () {
+    return console.log('Finally');
+  });
+});
+document.readyState('');
