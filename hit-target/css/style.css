@@ -1,0 +1,58 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  font-size: 40px;
+  color: #0b0a0a;
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
+
+.whack {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #BBD2C5;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #536976, #BBD2C5);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #536976, #BBD2C5);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.grid1 {
+  width: 606px;
+  height: 606px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  cursor: url(../img/gun.png), auto;
+}
+
+.square {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.hit-btn {
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #d63131;
+  width: 150px;
+  color: antiquewhite;
+  padding: 10px 10px;
+}
+.hit-btn:hover {
+  background-color: #bc1c1c;
+}
+
+.mole {
+  background: url(../img/target-png.png) center center/cover no-repeat;
+}

@@ -29,8 +29,28 @@ function randomSquare() {
     } else {
         clearTimeout(timeCount);
         clearInterval(countDownTimeId);
-        // !!!!!!!!!!!!!! CHANGE IT FOR TOAST AND MAKE IT ON CLICK OF THE BUTTON!
-        // alert('game is over! Your score is ' + resultW);
+     
+        Toastify({
+            text: `Your score is ${resultW}`,
+            duration: 3000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: false,
+            gravity: "top", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "rgb(214, 49, 49)",
+              width: '400px',
+              height: '200px',
+              fontSize: '40px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            },
+            onClick: function(){} // Callback after click
+          }).showToast();
+          
     }
 }
 
